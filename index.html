@@ -11,38 +11,65 @@
             overflow-x: hidden; /* Verhindert horizontales Scrollen */
             margin: 0; /* Entfernt unnötige Ränder */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
             padding: 0;
             background-color: #f9f9f9;
-            color: #333;
+            color: #0055aa;
+        }
+        .top-bar {
+            background-color: #0055aa;
+            color: white;
+            text-align: center;
+            padding: 5px 0;
+            font-size: 14px;
+            position: fixed;
+            width: 100%; /* Damit sie sich über die gesamte Breite erstreckt */
+            top: 0; /* Direkt oben anheften */
+            left: 0;
+            z-index: 9999; /* Stellt sicher, dass sie über anderen Elementen liegt */
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .top-bar a:hover {
+            text-decoration: underline;
+        }
+
+        .social-icons a {
+            margin-left: 10px;
+            font-size: 18px;
         }
 
         .header-logo {
-        height: 170px; /* Größe anpassen */
-        width: auto; /* Automatische Breite */
-        max-height: 200px; /* Falls du eine Obergrenze willst */
-        }
-
-        header {
-        display: flex;
-        align-items: center; /* Vertikal ausrichten */
-        justify-content: space-between; /* Abstand zwischen Logo & Navigation */
-        padding: 10px 20px; /* Anpassen nach Bedarf */
-        height: 60px; /* Feste Höhe setzen */
+            height: 170px; /* Größe anpassen */
+            width: auto; /* Automatische Breite */
+            max-height: 200px; /* Falls du eine Obergrenze willst */
         }
 
         header {
             background-color: #e8edf3; /* Dunkleres Blau */
             color: white;
-            padding: 15px 20px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
+            justify-content: space-between; /* Abstand zwischen Logo und Navigation */
+            align-items: center; /* Vertikal ausrichten */
+            position: sticky; /* Fixiert den Header */
+            top: 34px;
             width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 20px;
+            z-index: 1000; /* Damit der Header über anderen Inhalten bleibt */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Schatten für den Header */
+            height: 60px; /* Feste Höhe für den Header */
         }
 
         header h1 {
@@ -103,15 +130,14 @@
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: background-color 0.3s;
             margin-top: 20px;
             border-radius: 5px;
-            animation: pulse 2s infinite;
+            animation: none;
         }
 
         .cta-button:hover {
             background-color: #004488; /* Dunkleres Blau für Hover */
-            transform: translateY(-5px);
         }
 
         @keyframes fadeIn {
@@ -156,9 +182,20 @@
         }
 
         .service-item:hover, .why-item:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
             box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            will-change: transform;
         }
+
+        .service-item img {
+            width: 100%; /* Volle Breite des Kastens */
+            height: 170px; /* Höhe kannst du anpassen */
+            object-fit: cover; /* Sorgt dafür, dass das Bild schön zugeschnitten ist */
+            border-top-left-radius: 10px; /* Gleiche Rundungen wie der Kasten */
+            border-top-right-radius: 10px;
+            display: block;
+        }
+
 
         footer {
             background-color: #002244; /* Dunkleres Blau */
@@ -302,7 +339,17 @@
     </style>
 </head>
 <body>
-
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <span>📞 <a href="tel:+4915732110038">+49 157 32110038 </a></span>
+            <span>📧 <a href="mailto:info.beqiriclean@gmail.com">info.beqiriclean@gmail.com</a></span>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/deinaccount" target="_blank">📘</a>
+                <a href="https://wa.me/4915732110038" target="_blank">💬</a>
+            </div>
+        </div>
+    </div>
+    
 <header>
     <a href="chatgptindex.html">
         <img src="images/Beqiri clean.png" alt="Beqiri Clean Logo" class="header-logo">
@@ -324,24 +371,30 @@
 
 <section id="about" class="section">
     <h2>Über uns – Ihre Experten für Gebäudereinigung</h2>
-    <p>Beqiri Clean wurde gegründet, um nicht nur Ihre Räume zu reinigen, sondern Ihre Lebensqualität zu verbessern. Wir bieten Ihnen mehr als nur Sauberkeit – wir liefern **Vertrauen**, **Präzision** und **Zuverlässigkeit**.</p>
-    <p>Unsere Werte: **Exzellenz**, **Flexibilität** und **Verantwortung**.</p>
+    <p>Beqiri Clean ist mehr als nur eine Gebäudereinigung. Wir bieten unseren Kunden nicht nur Service, sondern ein Versprechen von Qualität und Verlässlichkeit. Als junge, ambitionierte Firma wollen wir zeigen, dass auch im Bereich Reinigung Innovation und exzellente Kundenbetreuung möglich sind.</p>
+    <p>Mit frischem Blick und einem klaren Fokus auf Kundenzufriedenheit bringen wir den Standard von Gebäudereinigung auf das nächste Level.</p>
 </section>
 
 <section id="services" class="section">
     <h2>Unsere Dienstleistungen</h2>
     <div class="services">
         <div class="service-item">
-            <h3>Büroreinigung</h3>
-            <p>Professionelle Reinigung für eine produktive Arbeitsumgebung. **Ein sauberes Büro steigert die Effizienz und das Wohlbefinden.**</p>
+            <img src="images/büroreinigung.jpg" alt="Büroreinigung">
+            <h3><strong>Büroreinigung</strong></h3>
+            <p><strong>Ein sauberes Büro ist der erste Schritt zu mehr Produktivität.</strong> Wir kümmern uns um alles – von der täglichen Reinigung bis hin zur gründlichen Sonderreinigung, damit Sie sich voll auf Ihre Arbeit konzentrieren können.</p>
+            <a href="#jetzt-anfragen" class="cta-button">Jetzt anfragen</a>
         </div>
         <div class="service-item">
-            <h3>Fensterreinigung</h3>
-            <p>Wir sorgen dafür, dass Ihre Fenster immer im besten Zustand sind. **Glasklare Sicht für mehr Frische.**</p>
+            <img src="images/fensterreinigung.jpg" alt="Fensterreinigung">
+            <h3><strong>Fensterreinigung</strong></h3>
+            <p><strong>Saubere Fenster für einen klaren Blick</strong> – Unsere Fensterreinigung sorgt nicht nur für ein glänzendes Zuhause, sondern auch für den perfekten ersten Eindruck. <strong>Schnell, gründlich und ohne Streifen.</strong> Vertrauen Sie auf die Expertise von Beqiri Clean.</p>
+            <a href="#mehr-erfahren" class="cta-button">Mehr erfahren</a>
         </div>
         <div class="service-item">
-            <h3>Teppichreinigung</h3>
-            <p>Frische Teppiche, die nicht nur sauber, sondern auch hygienisch sind. **Für einen gesunden Raum.**</p>
+            <img src="images/grundreinigung.jpg" alt="Grundreinigung">
+            <h3><strong>Grundreinigung</strong></h3>
+            <p><strong>Verleihen Sie Ihrem Zuhause neuen Glanz.</strong> Unsere Grundreinigung sorgt für <strong>eine frische, hygienische Umgebung</strong> und entfernt tiefsitzende Verschmutzungen. Schützen Sie Ihre Gesundheit und Ihr Zuhause.</p>
+            <a href="#mehr-erfahren" class="cta-button">Mehr erfahren</a>
         </div>
     </div>
 </section>
@@ -350,16 +403,20 @@
     <h2>Warum Beqiri Clean?</h2>
     <div class="why-us">
         <div class="why-item">
-            <h3>Erfahrung</h3>
-            <p>Mit jahrelanger Erfahrung bieten wir erstklassige Reinigungslösungen, auf die Sie sich verlassen können.</p>
+            <h3>Fachgerechte Reinigung</h3>
+            <li><strong>🔬Erfahrene Fachkräfte</strong> – Wir nutzen bewährte Techniken und hochwertige Reinigungsmittel.</li>
+            <li><strong>🛡️Materialschonend & effektiv</strong> – Jede Oberfläche bekommt die richtige Pflege.</li>
+            <li><strong>🌱Umweltbewusste Reinigung</strong> – Nachhaltige und schonende Methoden für beste Ergebnisse.</li>
         </div>
         <div class="why-item">
             <h3>Verlässlichkeit</h3>
-            <p>Wir halten immer, was wir versprechen. **Pünktlichkeit** und **Zuverlässigkeit** stehen bei uns an erster Stelle.</p>
+            <li><strong>✅Wir halten, was wir versprechen</strong> – Verbindlichkeit ist unser Standard.</li>
+            <li><strong>⏰Pünktlich & zuverlässig</strong> – Sie können sich auf uns verlassen.</li>
         </div>
         <div class="why-item">
             <h3>Flexibilität</h3>
-            <p>Ob Tag oder Nacht – wir richten uns nach Ihren Bedürfnissen, um Ihnen den bestmöglichen Service zu bieten.</p>
+            <li><strong>🌙Ob Tag oder Nacht</strong> – Wir passen uns Ihren Wünschen an.</li>
+            <li><strong>📅Individuelle Terminwahl</strong> – Sie bestimmen, wann es für Sie passt.</li>
         </div>
     </div>
 </section>
