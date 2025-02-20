@@ -280,33 +280,65 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
+        /* Formular Container */
         .contact-form {
+            background-color: #f4f4f4; /* Helles Grau für den Hintergrund */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             max-width: 600px;
-            margin: 0 auto;
-            text-align: left;
+            margin: 0 auto; /* Zentrieren */
         }
 
-        .contact-form input, .contact-form textarea {
+        /* Eingabefelder */
+        .contact-form input, 
+        .contact-form textarea {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin: 10px 0;
+            border-radius: 8px;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            font-size: 16px;
+            font-family: 'Arial', sans-serif;
+            box-sizing: border-box;
         }
 
+        /* Hover-Effekt für die Eingabefelder */
+        .contact-form input:hover,
+        .contact-form textarea:hover {
+            border-color: #0099cc; /* Blau, um den Fokus zu zeigen */
+        }
+
+        /* Textarea (größer) */
+        .contact-form textarea {
+            height: 150px; /* Höhere Textarea für mehr Platz */
+        }
+
+        /* Label */
+        .contact-form label {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Button */
         .contact-form button {
-            background-color: #0055aa;
+            background-color: #0099cc;
             color: white;
-            padding: 15px 30px;
+            padding: 15px 25px;
             border: none;
             border-radius: 5px;
+            font-size: 18px;
             cursor: pointer;
-            font-size: 1.2em;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease;
+            width: 100%;
         }
 
+        /* Hover-Effekt für den Button */
         .contact-form button:hover {
-            background-color: #004488;
+            background-color: #007bb5;
         }
 
         /* Responsive Design */
@@ -441,7 +473,7 @@
 
 <section id="contact" class="section">
     <h2>Kontaktieren Sie uns</h2>
-    <p>Bereit, Ihr Projekt zu starten? **Kontaktieren Sie uns noch heute!**</p>
+    <p>Bereit, Ihr Projekt zu starten? <strong>Kontaktieren Sie uns jetzt und wir machen es möglich!</strong></p>
     <div class="contact-form">
         <form action="#" method="post">
             <input type="text" name="name" placeholder="Ihr Name" required>
