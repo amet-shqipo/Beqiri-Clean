@@ -364,22 +364,23 @@
             header {
                 margin-top: 0 !important;
                 padding-top: 0 !important;
-                position: absolute; /* Falls nötig */
+                position: sticky;
                 top: 0;
                 left: 0;
                 width: 100%;
-                max-width: 90vw;
-                overflow-x: hidden;    
+                height: 90px; /* Höhe des Headers anpassen, je nach Logo */
+                display: flex;
+                justify-content: center; /* Zentriert den Inhalt */
+                align-items: center; /* Vertikal ausrichten */
+                box-sizing: border-box; /* Verhindert Überlauf durch Padding */
             }
+
             .header-logo {
-                margin-top: 25px; /* Falls das nicht reicht, erhöhe den Wert */
-                margin-right: 20px;
-                margin-left: 70px;
-                padding-right: 30px;
-                padding-top: 15px; /* Falls nötig */
-                display: block; /* Stellt sicher, dass es sich korrekt verhält */
-                max-width: 90%;
-                height: auto;    
+                max-width: 100%; /* Stellt sicher, dass das Logo nicht breiter als der Bildschirm wird */
+                height: auto; /* Höhe bleibt im Verhältnis */
+                max-height: 200px; /* Hier kannst du die maximale Höhe des Logos anpassen */
+                object-fit: contain; /* Verhindert unscharfe Skalierung */
+                margin-top: 40px;
             } 
             .header-nav {
                 display: none; /* Für kleine Bildschirme ausblenden */
