@@ -109,10 +109,16 @@
 
         .hero {
             background: url('https://raw.githubusercontent.com/amet-shqipo/Beqiri-Clean/main/images/fensterreinigung.jpg') no-repeat center center/cover;
-            color: white;
+            background-size: cover; /* Bild skalieren, um den Bereich zu füllen */
+            background-position: center; /* Bild zentrieren */
+            height: 500px; /* Höhe des Hero-Bereichs */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 150px 20px;
-            position: relative;
+            color: white; /* Textfarbe anpassen */
+            padding: 20px;
             margin-top: -55px;
         }
 
