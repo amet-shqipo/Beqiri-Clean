@@ -58,7 +58,8 @@
         }
 
         header {
-            background-color: #e8edf3; /* Dunkleres Blau */
+            background-color: transparent; /* Dunkleres Blau */
+            transition: background-color 0.3s ease-in-out;
             color: white;
             display: flex;
             justify-content: space-between; /* Abstand zwischen Logo und Navigation */
@@ -72,6 +73,10 @@
             height: 60px; /* Feste Höhe für den Header */
         }
 
+        header.scrolled {
+            background-color: rgba(232, 237, 243, 1);
+        }
+        
         header h1 {
             margin: 0;
             font-size: 2em;
@@ -358,6 +363,9 @@
                 width: 99%; /* Sorgt dafür, dass der Container die volle Breite des Bildschirms nutzt */
                 padding: 0 15px; /* Verhindert, dass der Inhalt an den Rändern klebt */
             }
+            .hero {
+                margin-top: -90px;
+            }
             .hero p, .cta-button {
                 margin-bottom: 20px; /* Mehr Abstand */
             }
@@ -415,6 +423,19 @@
     </style>
 </head>
     <link rel="icon" href="https://raw.githubusercontent.com/amet-shqipo/Beqiri-Clean/main/images/Beqiri clean.png" alt="Beqiri Clean Logo" type="image/png">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let header = document.querySelector("header");
+    
+            window.addEventListener("scroll", function() {
+                if (window.scrollY > 50) { 
+                    header.classList.add("scrolled");
+                } else {
+                    header.classList.remove("scrolled");
+                }
+            });
+        });
+    </script>
 <body>
     <div class="top-bar">
         <div class="top-bar-content">
