@@ -431,19 +431,6 @@
         }
     </style>
 </head>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let header = document.querySelector("header");
-    
-            window.addEventListener("scroll", function() {
-                if (window.scrollY > 50) { 
-                    header.classList.add("scrolled");
-                } else {
-                    header.classList.remove("scrolled");
-                }
-            });
-        });
-    </script>
 <body>
     <div class="top-bar">
         <div class="top-bar-content">
@@ -602,6 +589,19 @@
 
     setInterval(nextSlide, 5000); // Wechsel alle 5 Sekunden
 </script>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let header = document.querySelector("header");
+    
+            window.addEventListener("scroll", function() {
+                if (window.scrollY > 50) { 
+                    header.classList.add("scrolled");
+                } else {
+                    header.classList.remove("scrolled");
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
