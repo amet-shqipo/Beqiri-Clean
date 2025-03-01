@@ -29,6 +29,9 @@
             left: 0;
             z-index: 9999; /* Stellt sicher, dass sie über anderen Elementen liegt */
         }
+        .off-screen-menu {
+            display: none;
+        }
 
         .top-bar-content {
             display: flex;
@@ -46,6 +49,10 @@
 
         .top-bar a:hover {
             text-decoration: underline;
+        }
+
+        .off-screen-menu {
+            display: none;
         }
 
         .social-icons a {
@@ -398,10 +405,103 @@
                 max-height: 200px; /* Hier kannst du die maximale Höhe des Logos anpassen */
                 object-fit: contain; /* Verhindert unscharfe Skalierung */
                 margin-top: 40px;
+                margin-left: -20px;
             } 
             .header-nav {
                 display: none; /* Für kleine Bildschirme ausblenden */
             }
+            /* off-screen-menu */
+            .off-screen-menu {
+                background-color:  rgba(0, 85, 170, 0.95);
+                height: 100vh;
+                width: 80%;
+                max-width: 450px;
+                position: fixed;
+                top: 0;
+                right: -450px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;    
+                justify-content: center;
+                text-align: center;
+                font-size: 2rem;
+                transition: .3s ease;
+                box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
+                z-index: 1000;
+                
+            }
+            .off-screen-menu.active {
+                right: 0;
+            }
+            .off-screen-menu a {
+                color: white;
+                text-decoration: none;
+                font-size: 1.5rem; /* Verkleinern */
+                margin: 15px 0; /* Mehr Abstand */
+                transition: 0.3s;
+            }
+
+            .off-screen-menu a:hover {
+                color: #66ccff; /* Hellblau für Hover */
+            }
+            /* Hintergrund abdunkeln, wenn Menü offen ist */
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.2);
+                z-index: 998;
+                transition: opacity 0.3s ease;
+            }
+
+            .overlay.active {
+                display: block;
+            }
+
+            /* ham menu */
+            .ham-menu {
+                height: 50px;
+                width: 40px;
+                margin-left: auto;
+                margin-top: 20px;
+                position: relative;
+                z-index: 1200;
+            }
+            .ham-menu span {
+                height: 5px;
+                width: 100%;
+                background-color: #0055aa;
+                border-radius: 25px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                transition: .3s ease;
+            }
+            .ham-menu span:nth-child(1) {
+                top: 25%;
+            }
+            .ham-menu span:nth-child(3) {
+                top: 75%;
+            }
+            .ham-menu.active span {
+                background-color: white;
+            }
+            .ham-menu.active span:nth-child(1) {
+                top: 50%;
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+            .ham-menu.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .ham-menu.active span:nth-child(3) {
+                top: 50%;
+                transform: translate(-50%, -50%) rotate(-45deg);
+            }
+
             .nav-links {
                 display: none !important;
                 visibility: hidden;
@@ -432,94 +532,106 @@
     </style>
 </head>
 <body>
-    <div class="top-bar">
-        <div class="top-bar-content">
-            <span>📞 <a href="tel:+4915732110038">+49 157 32110038 </a></span>
-            <span>📧 <a href="mailto:info.beqiriclean@gmail.com">info.beqiriclean@gmail.com</a></span>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/deinaccount" target="_blank">📘</a>
-                <a href="https://wa.me/4915732110038" target="_blank">💬</a>
+        <div class="top-bar">
+            <div class="top-bar-content">
+                <span>📞 <a href="tel:+4915732110038">+49 157 32110038 </a></span>
+                <span>📧 <a href="mailto:info.beqiriclean@gmail.com">info.beqiriclean@gmail.com</a></span>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/deinaccount" target="_blank">📘</a>
+                    <a href="https://wa.me/4915732110038" target="_blank">💬</a>
+                </div>
             </div>
         </div>
-    </div>
     
-<header>
-        <a href="index.html">
-            <img src="images/Beqiri clean.png" alt="Beqiri Clean Logo" class="header-logo">
-        </a>    
-        <!-- Hamburger Menü für mobile Ansicht -->
-        <div class="hamburger-menu" id="hamburger-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-        <!-- Navigation -->
-        <nav class="nav-links">
-            <a href="#about">Über uns</a>
-            <a href="#services">Dienstleistungen</a>
-            <a href="#why-us">Warum wir?</a>
-            <a href="#contact">Kontakt</a>
-            <a href="#contact" class="cta-nav">Jetzt Angebot anfordern</a>
-        </nav>
+    <header>
+            <a href="index.html">
+                <img src="images/Beqiri clean.png" alt="Beqiri Clean Logo" class="header-logo">
+            </a> 
+        
+            <div class="off-screen-menu">
+                <ul>
+                <li><a href="#about">Über uns</a></li>
+                <li><a href="#services">Dienstleistungen</a></li>
+                <li><a href="#why-us">Warum wir?</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+                <li><a href="#contact" class="cta-nav">Jetzt Angebot anfordern</a></li>
+                </ul>
+            </div>
+            <!-- Hamburger Menü für mobile Ansicht -->
+            <div id="ham-menu" class="ham-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="overlay"></div>
+
+            <!-- Navigation -->
+            <nav class="nav-links">
+                <a href="#about">Über uns</a>
+                <a href="#services">Dienstleistungen</a>
+                <a href="#why-us">Warum wir?</a>
+                <a href="#contact">Kontakt</a>
+                <a href="#contact" class="cta-nav">Jetzt Angebot anfordern</a>
+            </nav>
     </header>
 
-<div class="hero">
-    <h2>Sauberkeit auf höchstem Niveau</h2>
-    <p>Ihr Partner für professionelle Reinigung – schnell, zuverlässig, flexibel.</p>
-    <a href="#contact" class="cta-button">Kostenloses Angebot</a>
-</div>
-
-<section id="about" class="section">
-    <h2>Über uns – Ihre Experten für Gebäudereinigung</h2>
-    <p>Beqiri Clean ist mehr als nur eine Gebäudereinigung. Wir bieten unseren Kunden nicht nur Service, sondern ein Versprechen von Qualität und Verlässlichkeit. Als junge, ambitionierte Firma wollen wir zeigen, dass auch im Bereich Reinigung Innovation und exzellente Kundenbetreuung möglich sind.</p>
-    <p>Mit frischem Blick und einem klaren Fokus auf Kundenzufriedenheit bringen wir den Standard von Gebäudereinigung auf das nächste Level.</p>
-</section>
-
-<section id="services" class="section">
-    <h2>Unsere Dienstleistungen</h2>
-    <div class="services">
-        <div class="service-item">
-            <img src="https://raw.githubusercontent.com/amet-shqipo/Beqiri-Clean/main/images/büroreinigung.jpg" alt="Büroreinigung">
-            <h3><strong>Büroreinigung</strong></h3>
-            <p><strong>Ein sauberes Büro ist der erste Schritt zu mehr Produktivität.</strong> Wir kümmern uns um alles – von der täglichen Reinigung bis hin zur gründlichen Sonderreinigung, damit Sie sich voll auf Ihre Arbeit konzentrieren können.</p>
-            <a href="#jetzt-anfragen" class="cta-button">Jetzt anfragen</a>
-        </div>
-        <div class="service-item">
-            <img src="https://raw.githubusercontent.com/amet-shqipo/Beqiri-Clean/main/images/fensterreinigung.jpg" alt="Fensterreinigung">
-            <h3><strong>Fensterreinigung</strong></h3>
-            <p><strong>Saubere Fenster für einen klaren Blick</strong> – Unsere Fensterreinigung sorgt nicht nur für ein glänzendes Zuhause, sondern auch für den perfekten ersten Eindruck. <strong>Schnell, gründlich und ohne Streifen.</strong> Vertrauen Sie auf die Expertise von Beqiri Clean.</p>
-            <a href="#mehr-erfahren" class="cta-button">Mehr erfahren</a>
-        </div>
-        <div class="service-item">
-            <img src="https://raw.githubusercontent.com/amet-shqipo/Beqiri-Clean/main/images/grundreinigung.jpg" alt="Grundreinigung">
-            <h3><strong>Grundreinigung</strong></h3>
-            <p><strong>Verleihen Sie Ihrem Zuhause neuen Glanz.</strong> Unsere Grundreinigung sorgt für <strong>eine frische, hygienische Umgebung</strong> und entfernt tiefsitzende Verschmutzungen. Schützen Sie Ihre Gesundheit und Ihr Zuhause.</p>
-            <a href="#mehr-erfahren" class="cta-button">Mehr erfahren</a>
-        </div>
+    <div class="hero">
+        <h2>Sauberkeit auf höchstem Niveau</h2>
+        <p>Ihr Partner für professionelle Reinigung – schnell, zuverlässig, flexibel.</p>
+        <a href="#contact" class="cta-button">Kostenloses Angebot</a>
     </div>
-</section>
 
-<section id="why-us" class="section">
-    <h2>Warum Beqiri Clean?</h2>
-    <div class="why-us">
-        <div class="why-item">
-            <h3>Fachgerechte Reinigung</h3>
-            <li><strong>🔬Erfahrene Fachkräfte</strong> – Wir nutzen bewährte Techniken und hochwertige Reinigungsmittel.</li>
-            <li><strong>🛡️Materialschonend & effektiv</strong> – Jede Oberfläche bekommt die richtige Pflege.</li>
-            <li><strong>🌱Umweltbewusste Reinigung</strong> – Nachhaltige und schonende Methoden für beste Ergebnisse.</li>
+    <section id="about" class="section">
+        <h2>Über uns – Ihre Experten für Gebäudereinigung</h2>
+        <p>Beqiri Clean ist mehr als nur eine Gebäudereinigung. Wir bieten unseren Kunden nicht nur Service, sondern ein Versprechen von Qualität und Verlässlichkeit. Als junge, ambitionierte Firma wollen wir zeigen, dass auch im Bereich Reinigung Innovation und exzellente Kundenbetreuung möglich sind.</p>
+        <p>Mit frischem Blick und einem klaren Fokus auf Kundenzufriedenheit bringen wir den Standard von Gebäudereinigung auf das nächste Level.</p>
+    </section>
+
+    <section id="services" class="section">
+        <h2>Unsere Dienstleistungen</h2>
+        <div class="services">
+            <div class="service-item">
+                <img src="https://raw.githubusercontent.com/amet-shqipo/Beqiri-Clean/main/images/büroreinigung.jpg" alt="Büroreinigung">
+                <h3><strong>Büroreinigung</strong></h3>
+                <p><strong>Ein sauberes Büro ist der erste Schritt zu mehr Produktivität.</strong> Wir kümmern uns um alles – von der täglichen Reinigung bis hin zur gründlichen Sonderreinigung, damit Sie sich voll auf Ihre Arbeit konzentrieren können.</p>
+                <a href="#jetzt-anfragen" class="cta-button">Jetzt anfragen</a>
+            </div>
+            <div class="service-item">
+                <img src="https://raw.githubusercontent.com/amet-shqipo/Beqiri-Clean/main/images/fensterreinigung.jpg" alt="Fensterreinigung">
+                <h3><strong>Fensterreinigung</strong></h3>
+                <p><strong>Saubere Fenster für einen klaren Blick</strong> – Unsere Fensterreinigung sorgt nicht nur für ein glänzendes Zuhause, sondern auch für den perfekten ersten Eindruck. <strong>Schnell, gründlich und ohne Streifen.</strong> Vertrauen Sie auf die Expertise von Beqiri Clean.</p>
+                <a href="#mehr-erfahren" class="cta-button">Mehr erfahren</a>
+            </div>
+            <div class="service-item">
+                <img src="https://raw.githubusercontent.com/amet-shqipo/Beqiri-Clean/main/images/grundreinigung.jpg" alt="Grundreinigung">
+                <h3><strong>Grundreinigung</strong></h3>
+                <p><strong>Verleihen Sie Ihrem Zuhause neuen Glanz.</strong> Unsere Grundreinigung sorgt für <strong>eine frische, hygienische Umgebung</strong> und entfernt tiefsitzende Verschmutzungen. Schützen Sie Ihre Gesundheit und Ihr Zuhause.</p>
+                <a href="#mehr-erfahren" class="cta-button">Mehr erfahren</a>
+            </div>
         </div>
-        <div class="why-item">
-            <h3>Verlässlichkeit</h3>
-            <li><strong>✅Wir halten, was wir versprechen</strong> – Verbindlichkeit ist unser Standard.</li>
-            <li><strong>⏰Pünktlich & zuverlässig</strong> – Sie können sich auf uns verlassen.</li>
+    </section>
+
+    <section id="why-us" class="section">
+        <h2>Warum Beqiri Clean?</h2>
+        <div class="why-us">
+            <div class="why-item">
+                <h3>Fachgerechte Reinigung</h3>
+                <li><strong>🔬Erfahrene Fachkräfte</strong> – Wir nutzen bewährte Techniken und hochwertige Reinigungsmittel.</li>
+                <li><strong>🛡️Materialschonend & effektiv</strong> – Jede Oberfläche bekommt die richtige Pflege.</li>
+                <li><strong>🌱Umweltbewusste Reinigung</strong> – Nachhaltige und schonende Methoden für beste Ergebnisse.</li>
+            </div>
+            <div class="why-item">
+                <h3>Verlässlichkeit</h3>
+                <li><strong>✅Wir halten, was wir versprechen</strong> – Verbindlichkeit ist unser Standard.</li>
+                <li><strong>⏰Pünktlich & zuverlässig</strong> – Sie können sich auf uns verlassen.</li>
+            </div>
+            <div class="why-item">
+                <h3>Flexibilität</h3>
+                <li><strong>🌙Ob Tag oder Nacht</strong> – Wir passen uns Ihren Wünschen an.</li>
+                <li><strong>📅Individuelle Terminwahl</strong> – Sie bestimmen, wann es für Sie passt.</li>
+            </div>
         </div>
-        <div class="why-item">
-            <h3>Flexibilität</h3>
-            <li><strong>🌙Ob Tag oder Nacht</strong> – Wir passen uns Ihren Wünschen an.</li>
-            <li><strong>📅Individuelle Terminwahl</strong> – Sie bestimmen, wann es für Sie passt.</li>
-        </div>
-    </div>
-</section>
+    </section>
 
 <!--<section class="testimonial">
     <h2>Unsere Kunden sagen:</h2>
@@ -539,69 +651,101 @@
     </div>
 </section>-->
 
-<section id="contact" class="section">
-    <h2>Kontaktieren Sie uns</h2>
-    <p>Bereit, Ihr Projekt zu starten? <strong>Kontaktieren Sie uns jetzt und wir machen es möglich!</strong></p>
-    <div class="contact-form">
-        <form action="#" method="post">
-            <input type="text" name="name" placeholder="Ihr Name" required>
-            <input type="email" name="email" placeholder="Ihre E-Mail" required>
-            <textarea name="message" placeholder="Ihre Nachricht" rows="5" required></textarea>
-            <button type="submit">Nachricht senden</button>
-        </form>
-    </div>
-</section>
+    <section id="contact" class="section">
+        <h2>Kontaktieren Sie uns</h2>
+        <p>Bereit, Ihr Projekt zu starten? <strong>Kontaktieren Sie uns jetzt und wir machen es möglich!</strong></p>
+        <div class="contact-form">
+            <form action="#" method="post">
+                <input type="text" name="name" placeholder="Ihr Name" required>
+                <input type="email" name="email" placeholder="Ihre E-Mail" required>
+                <textarea name="message" placeholder="Ihre Nachricht" rows="5" required></textarea>
+                <button type="submit">Nachricht senden</button>
+            </form>
+        </div>
+    </section>
 
-<footer>
-    <p>© 2025 Beqiri Clean | <a href="Datenschutz_impressum">Datenschutz</a> | <a href="impressum2">Impressum</a></p>
-</footer>
+    <footer>
+        <p>© 2025 Beqiri Clean | <a href="Datenschutz_impressum">Datenschutz</a> | <a href="impressum2">Impressum</a></p>
+    </footer>
 
-<a href="#contact" class="fixed-cta">Jetzt Angebot anfordern</a>
-
-<script>
-    // Slide-in Animation für Dienstleistungen und Warum Uns?
-    const items = document.querySelectorAll('.service-item, .why-item');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    items.forEach(item => observer.observe(item));
-
-    // Testimonial Slider
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.testimonial-slide');
-    const totalSlides = slides.length;
-
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.style.transform = `translateX(${100 * (i - index)}%)`;
-        });
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        showSlide(currentSlide);
-    }
-
-    setInterval(nextSlide, 5000); // Wechsel alle 5 Sekunden
-</script>
-<script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let header = document.querySelector("header");
-    
-            window.addEventListener("scroll", function() {
-                if (window.scrollY > 50) { 
-                    header.classList.add("scrolled");
-                } else {
-                    header.classList.remove("scrolled");
+    <a href="#contact" class="fixed-cta">Jetzt Angebot anfordern</a>
+    <script>src="./app.js"</script>
+    <script>
+        // Slide-in Animation für Dienstleistungen und Warum Uns?
+        const items = document.querySelectorAll('.service-item, .why-item');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                 }
+            });
+        }, { threshold: 0.1 });
+
+        items.forEach(item => observer.observe(item));
+
+        // Testimonial Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.transform = `translateX(${100 * (i - index)}%)`;
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 5000); // Wechsel alle 5 Sekunden
+    </script>
+    <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                let header = document.querySelector("header");
+    
+                window.addEventListener("scroll", function() {
+                    if (window.scrollY > 50) { 
+                    header.classList.add("scrolled");
+                    } else {
+                    header.classList.remove("scrolled");
+                    }
+                });
+            });
+    </script>
+    <script>
+        // Warten bis das DOM geladen ist
+        document.addEventListener("DOMContentLoaded", function() {
+            const hamMenu = document.querySelector(".ham-menu");
+            const offScreenMenu = document.querySelector(".off-screen-menu");
+            const overlay = document.querySelector(".overlay");
+    
+            // Menü öffnen und schließen
+            hamMenu.addEventListener("click", () => {
+                hamMenu.classList.toggle("active");
+                offScreenMenu.classList.toggle("active");
+                overlay.classList.toggle("active");
+            });
+    
+            // Wenn auf das Overlay geklickt wird, das Menü schließen
+            overlay.addEventListener("click", () => {
+                hamMenu.classList.remove("active");
+                offScreenMenu.classList.remove("active");
+                overlay.classList.remove("active");
+            });
+    
+            // Wenn ein Link im Menü geklickt wird, Menü schließen
+            document.querySelectorAll(".off-screen-menu a").forEach(link => {
+                link.addEventListener("click", () => {
+                    hamMenu.classList.remove("active");
+                    offScreenMenu.classList.remove("active");
+                    overlay.classList.remove("active");
+                });
             });
         });
     </script>
+        
 
 </body>
 </html>
