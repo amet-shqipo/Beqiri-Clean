@@ -1,2 +1,2 @@
-exclude:
-  - "*"
+markdown: kramdown
+theme: null
