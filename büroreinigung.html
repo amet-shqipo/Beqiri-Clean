@@ -1,42 +1,83 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beqiri Clean – Grundreinigung</title>
-  <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Büroreinigung – Beqiri Clean</title>
+    <link rel="icon" href="../images/Beqiri clean.png" type="image/png">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css"> <!-- falls du CSS auslagern willst -->
 </head>
 <body>
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <div class="top-bar-content">
-      <span>📞 +49 123 456789 • ✉ info@beqiri-clean.de</span>
+
+    <!-- Topbar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <span>📞 <a href="tel:+4915732110038">+49 157 32110038 </a></span>
+            <span>📧 <a href="mailto:info.beqiriclean@gmail.com">info.beqiriclean@gmail.com</a></span>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/deinaccount" target="_blank">📘</a>
+                <a href="https://wa.me/4915732110038" target="_blank">💬</a>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <!-- Header -->
-  <header>
-    <img src="images/Beqiri clean.png" class="header-logo" alt="Beqiri Clean Logo" />
-    <nav>
-      <a href="index.html#about">Über uns</a>
-      <a href="index.html#services">Dienstleistungen</a>
-      <a href="index.html#why-us">Warum wir?</a>
-      <a href="index.html#contact" class="cta-nav">Jetzt Angebot anfordern</a>
-    </nav>
-  </header>
+    <!-- Header + Navigation -->
+    <header>
+        <a href="../index.html">
+            <img src="../images/Beqiri clean.png" alt="Beqiri Clean Logo" class="header-logo">
+        </a>
 
-  <!-- MAIN INHALT DIESER UNTERSEITE -->
-  <main style="margin-top:120px; padding:20px;">
-    <h1>Grundreinigung</h1>
-    <p>Hier kommt die echte Beschreibung rein.</p>
-  </main>
+        <div class="off-screen-menu">
+            <ul>
+                <li><a href="../index.html#about">Über uns</a></li>
+                <li><a href="../index.html#services">Dienstleistungen</a></li>
+                <li><a href="../index.html#why-us">Warum wir?</a></li>
+                <li><a href="../index.html#contact">Kontakt</a></li>
+                <li><a href="../index.html#contact" class="cta-nav">Jetzt Angebot anfordern</a></li>
+            </ul>
+        </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Beqiri Clean</p>
-    <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a>
-  </footer>
+        <!-- Hamburger Menü -->
+        <div id="ham-menu" class="ham-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="overlay"></div>
 
-  <script src="app.js"></script>
+        <nav class="nav-links">
+            <a href="../index.html#about">Über uns</a>
+            <a href="../index.html#services">Dienstleistungen</a>
+            <a href="../index.html#why-us">Warum wir?</a>
+            <a href="../index.html#contact">Kontakt</a>
+            <a href="../index.html#contact" class="cta-nav">Jetzt Angebot anfordern</a>
+        </nav>
+    </header>
+
+    <!-- Hero-Bereich -->
+    <div class="hero" style="background-image: url('https://raw.githubusercontent.com/amet-shqipo/Beqiri-Clean/main/images/büroreinigung.jpg');">
+        <h2>Saubere Büros – Produktivität steigern</h2>
+        <p>Unsere Büroreinigung sorgt für ein gepflegtes Arbeitsumfeld. Schnell, gründlich und zuverlässig.</p>
+        <a href="../index.html#contact" class="cta-button">Jetzt Angebot anfordern</a>
+    </div>
+
+    <!-- Inhalt / Text -->
+    <section class="section">
+        <h2>Büroreinigung von Beqiri Clean</h2>
+        <p>Ein sauberes Büro ist der Schlüssel zu produktiven Mitarbeitern und einem professionellen Eindruck bei Kunden.</p>
+        <p>Wir kümmern uns um die tägliche Reinigung, Sonderreinigung und alles dazwischen – individuell angepasst an Ihre Bedürfnisse.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Beqiri Clean | <a href="../Datenschutz_impressum">Datenschutz</a> | <a href="../impressum2">Impressum</a></p>
+    </footer>
+
+    <a href="../index.html#contact" class="fixed-cta">Jetzt Angebot anfordern</a>
+
+    <!-- JS einbinden -->
+    <script src="../js/app.js"></script>
+
 </body>
 </html>
