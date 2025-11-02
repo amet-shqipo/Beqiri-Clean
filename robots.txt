@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://raw.githubusercontent.com/amet-shqipo/Beqiri-Clean/main/sitemap.xml
+Sitemap: https://beqiri-clean.de/sitemap.xml
