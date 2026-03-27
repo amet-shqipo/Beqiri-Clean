@@ -9,619 +9,83 @@
     <meta name="description" content="Beqiri Clean - professionelle Gebäudereinigung in Memmingen. Büro-, Fenster- & Grundreinigung. Schnell, zuverlässig und fair. Jetzt kostenloses Angebot!">
     <meta name="google-site-verification" content="fMaK1TEa4R_Yg1DXH_eh04XbE6gUzEa0OXAgw9fAceY" />
     <title>Beqiri Clean – Professionelle Gebäudereinigung in Memmingen & Allgäu</title>
-    <style>
-        /* Allgemeine Stile */
-        body {
-            overflow-x: hidden; /* Verhindert horizontales Scrollen */
-            margin: 0; /* Entfernt unnötige Ränder */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #0055aa;
-        }
-        .top-bar {
-            background-color: #0055aa;
-            color: white;
-            text-align: center;
-            padding: 5px 0;
-            font-size: 14px;
-            position: fixed;
-            width: 100%; /* Damit sie sich über die gesamte Breite erstreckt */
-            top: 0; /* Direkt oben anheften */
-            left: 0;
-            z-index: 9999; /* Stellt sicher, dass sie über anderen Elementen liegt */
-        }
-        .off-screen-menu {
-            display: none;
-        }
-
-        .top-bar-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: auto;
-            padding: 0 20px;
-        }
-
-        .top-bar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        .top-bar a:hover {
-            text-decoration: underline;
-        }
-
-        .off-screen-menu {
-            display: none;
-        }
-
-        .social-icons a {
-            margin-left: 10px;
-            font-size: 18px;
-        }
-
-        .header-logo {
-            height: 170px; /* Größe anpassen */
-            width: auto; /* Automatische Breite */
-            max-height: 200px; /* Falls du eine Obergrenze willst */
-        }
-
-        header {
-            background-color: transparent; /* Dunkleres Blau */
-            transition: background-color 0.3s ease-in-out;
-            color: white;
-            display: flex;
-            justify-content: space-between; /* Abstand zwischen Logo und Navigation */
-            align-items: center; /* Vertikal ausrichten */
-            position: sticky; /* Fixiert den Header */
-            top: 34px;
-            width: 100%;
-            padding: 15px 20px;
-            z-index: 1000; /* Damit der Header über anderen Inhalten bleibt */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Schatten für den Header */
-            height: 60px; /* Feste Höhe für den Header */
-        }
-
-        header.scrolled {
-            background-color: rgba(232, 237, 243, 1);
-        }
-        
-        header h1 {
-            margin: 0;
-            font-size: 2em;
-            font-weight: bold;
-        }
-
-        nav a {
-            margin: 0 15px;
-            color: #002142;
-            text-decoration: none;
-            font-size: 1.1em;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #66ccff; /* Hellblau für Hover-Effekt */
-        }
-
-        .cta-nav {
-            color: white;
-            background-color: #0055aa;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .cta-nav:hover {
-            background-color: #004488;
-        }
-
-        .hero {
-            background: url('https://raw.githubusercontent.com/amet-shqipo/Beqiri-Clean/main/images/fensterreinigung.jpg') no-repeat center center/cover;
-            background-size: cover; /* Bild skalieren, um den Bereich zu füllen */
-            background-position: center; /* Bild zentrieren */
-            height: 500px; /* Höhe des Hero-Bereichs */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white; /* Textfarbe anpassen */
-            padding: 20px;
-            margin-top: -55px;
-        }
-
-        .hero h2 {
-            font-size: 3em;
-            margin: 0;
-            animation: fadeIn 2s;
-        }
-
-        .hero p {
-            font-size: 1.2em;
-            margin-top: 10px;
-            animation: fadeIn 3s;
-        }
-
-        .cta-button {
-            background-color: #0055aa; /* Mittelblau */
-            padding: 15px 30px;
-            border: none;
-            color: white;
-            font-size: 1.2em;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: background-color 0.3s;
-            margin-top: 20px;
-            border-radius: 5px;
-            animation: none;
-        }
-
-        .cta-button:hover {
-            background-color: #004488; /* Dunkleres Blau für Hover */
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .section {
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .services, .why-us {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin: 20px 0;
-        }
-
-        .service-item, .why-item {
-            flex: 1 1 30%;
-            margin: 10px;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-radius: 10px;
-            opacity: 0;
-            transform: translateY(50px);
-        }
-
-        .service-item.visible, .why-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .service-item:hover, .why-item:hover {
-            transform: scale(1.03);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            will-change: transform;
-        }
-
-        .service-item img {
-            width: 100%; /* Volle Breite des Kastens */
-            height: 170px; /* Höhe kannst du anpassen */
-            object-fit: cover; /* Sorgt dafür, dass das Bild schön zugeschnitten ist */
-            border-top-left-radius: 10px; /* Gleiche Rundungen wie der Kasten */
-            border-top-right-radius: 10px;
-            display: block;
-        }
-
-
-        footer {
-            background-color: #002244; /* Dunkleres Blau */
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
-
-        footer a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1em;
-            transition: color 0.3s;
-        }
-
-        footer a:hover {
-            color: #66ccff; /* Hellblau für Hover-Effekt */
-        }
-
-        /*.testimonial {
-            margin-top: 30px;
-            background-color: #e0f7fa; /* Hellblauer Hintergrund 
-            padding: 40px;
-            text-align: center;
-            border-radius: 10px;
-            position: relative;
-            overflow: hidden;
-        }
-        .testimonial blockquote {
-            font-size: 1.2em;
-            font-style: italic;
-            margin: 0;
-        }
-        .testimonial p {
-            margin-top: 10px;
-            font-weight: bold;
-        }
-        .testimonial-slider {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .testimonial-slide {
-            min-width: 100%;
-            box-sizing: border-box;
-        }*/
-
-        .fixed-cta {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #0055aa;
-            padding: 15px 30px;
-            border-radius: 5px;
-            color: white;
-            text-decoration: none;
-            font-size: 1.2em;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            z-index: 1000;
-            transition: background-color 0.3s;
-        }
-
-        .fixed-cta:hover {
-            background-color: #004488;
-        }
-
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .trust-badge {
-            background-color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        /* Formular Container */
-        .contact-form {
-            background-color: #f4f4f4; /* Helles Grau für den Hintergrund */
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: 0 auto; /* Zentrieren */
-        }
-
-        /* Eingabefelder */
-        .contact-form input, 
-        .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-            font-family: 'Arial', sans-serif;
-            box-sizing: border-box;
-        }
-
-        /* Hover-Effekt für die Eingabefelder */
-        .contact-form input:hover,
-        .contact-form textarea:hover {
-            border-color: #0099cc; /* Blau, um den Fokus zu zeigen */
-        }
-
-        /* Textarea (größer) */
-        .contact-form textarea {
-            height: 150px; /* Höhere Textarea für mehr Platz */
-        }
-
-        /* Label */
-        .contact-form label {
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        /* Button */
-        .contact-form button {
-            background-color: #0099cc;
-            color: white;
-            padding: 15px 25px;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            width: 100%;
-        }
-
-        /* Hover-Effekt für den Button */
-        .contact-form button:hover {
-            background-color: #007bb5;
-        }
-
-        /* Responsive Design */
-         /* Responsive Design */
-        @media (max-width: 768px) {
-            body {
-                overflow-x: hidden; /* Verhindert horizontales Scrollen */
-                width: 100%;
-                padding: 0;
-                margin: 0;
-            }
-            .top-bar {
-                display: none !important; /* Navigation ausblenden */
-                height: 0 !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                visibility: hidden !important;
-            }
-            .container {
-                width: 99%; /* Sorgt dafür, dass der Container die volle Breite des Bildschirms nutzt */
-                padding: 0 15px; /* Verhindert, dass der Inhalt an den Rändern klebt */
-            }
-            .hero {
-                margin-top: -90px;
-            }
-            .hero p, .cta-button {
-                margin-bottom: 20px; /* Mehr Abstand */
-            }
-            header {
-                margin-top: 0 !important;
-                padding-top: 0 !important;
-                position: sticky;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 90px; /* Höhe des Headers anpassen, je nach Logo */
-                display: flex;
-                justify-content: center; /* Zentriert den Inhalt */
-                align-items: center; /* Vertikal ausrichten */
-                box-sizing: border-box; /* Verhindert Überlauf durch Padding */
-            }
-
-            .header-logo {
-                max-width: 100%; /* Stellt sicher, dass das Logo nicht breiter als der Bildschirm wird */
-                height: auto; /* Höhe bleibt im Verhältnis */
-                max-height: 200px; /* Hier kannst du die maximale Höhe des Logos anpassen */
-                object-fit: contain; /* Verhindert unscharfe Skalierung */
-                margin-top: 40px;
-                margin-left: -20px;
-            } 
-            .header-nav {
-                display: none; /* Für kleine Bildschirme ausblenden */
-            }
-            /* off-screen-menu */
-            .off-screen-menu {
-                background-color:  rgba(0, 85, 170, 0.95);
-                height: 100vh;
-                width: 80%;
-                max-width: 450px;
-                position: fixed;
-                top: 0;
-                right: -450px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;    
-                justify-content: center;
-                text-align: center;
-                font-size: 2rem;
-                transition: .3s ease;
-                box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
-                z-index: 1000;
-                
-            }
-            .off-screen-menu.active {
-                right: 0;
-            }
-            .off-screen-menu a {
-                color: white;
-                text-decoration: none;
-                font-size: 1.5rem; /* Verkleinern */
-                margin: 15px 0; /* Mehr Abstand */
-                transition: 0.3s;
-            }
-
-            .off-screen-menu a:hover {
-                color: #66ccff; /* Hellblau für Hover */
-            }
-            /* Hintergrund abdunkeln, wenn Menü offen ist */
-            .overlay {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-color: rgba(0, 0, 0, 0.2);
-                z-index: 998;
-                transition: opacity 0.3s ease;
-            }
-
-            .overlay.active {
-                display: block;
-            }
-
-            /* ham menu */
-            .ham-menu {
-                height: 50px;
-                width: 40px;
-                margin-left: auto;
-                margin-top: 20px;
-                position: relative;
-                z-index: 1200;
-            }
-            .ham-menu span {
-                height: 5px;
-                width: 100%;
-                background-color: #0055aa;
-                border-radius: 25px;
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                transition: .3s ease;
-            }
-            .ham-menu span:nth-child(1) {
-                top: 25%;
-            }
-            .ham-menu span:nth-child(3) {
-                top: 75%;
-            }
-            .ham-menu.active span {
-                background-color: white;
-            }
-            .ham-menu.active span:nth-child(1) {
-                top: 50%;
-                transform: translate(-50%, -50%) rotate(45deg);
-            }
-            .ham-menu.active span:nth-child(2) {
-                opacity: 0;
-            }
-            .ham-menu.active span:nth-child(3) {
-                top: 50%;
-                transform: translate(-50%, -50%) rotate(-45deg);
-            }
-
-            .nav-links {
-                display: none !important;
-                visibility: hidden;
-                opacity: 0;
-                position: absolute;
-                top: 80px;
-                right: 20px;
-                background-color: #fff;
-                border-radius: 5px;
-                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-                padding: 5px;
-                overflow-x: hidden;
-                white-space: nowrap;
-                width: 200px;
-                height: auto;
-                transition: opacity 0.3s ease-in-out;
-            }
-
-            
-            .contact-form input, .contact-form textarea {
-                padding: 15px;
-                font-size: 1.2em;
-            }
-            .fixed-cta {
-                display: none;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="Css/style.css">
     <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Beqiri Clean",
-  "description": "Professionelle Gebäudereinigung in Memmingen und Allgäu. Büroreinigung, Fensterreinigung und Grundreinigung für Unternehmen und Privatkunden.",
-  "url": "https://beqiri-clean.de",
-  "telephone": "+4915732110038",
-  "email": "info.beqiriclean@gmail.com",
-  "image": "https://beqiri-clean.de/images/Beqiri clean.png",
-  "priceRange": "€€",
-  "areaServed": [
     {
-      "@type": "City",
-      "name": "Memmingen"
-    },
-    {
-      "@type": "City",
-      "name": "Kempten"
-    },
-    {
-      "@type": "City",
-      "name": "Mindelheim"
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Beqiri Clean",
+      "description": "Professionelle Gebäudereinigung in Memmingen und Allgäu. Büroreinigung, Fensterreinigung und Grundreinigung für Unternehmen und Privatkunden.",
+      "url": "https://beqiri-clean.de",
+      "telephone": "+4915732110038",
+      "email": "info.beqiriclean@gmail.com",
+      "image": "https://beqiri-clean.de/images/Beqiri clean.png",
+      "priceRange": "€€",
+      "areaServed": [
+        { "@type": "City", "name": "Memmingen" },
+        { "@type": "City", "name": "Kempten" },
+        { "@type": "City", "name": "Mindelheim" }
+      ],
+      "serviceType": ["Gebäudereinigung","Büroreinigung","Fensterreinigung","Grundreinigung"],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "08:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00",
+          "closes": "16:00"
+        }
+      ]
     }
-  ],
-  "serviceType": [
-    "Gebäudereinigung",
-    "Büroreinigung",
-    "Fensterreinigung",
-    "Grundreinigung"
-  ],
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-      "opens": "08:00",
-      "closes": "19:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
-      "opens": "08:00",
-      "closes": "16:00"
-    }
-  ]
-}
-</script>
+    </script>
 </head>
 <body>
-        <div class="top-bar">
-            <div class="top-bar-content">
-                <span>📞 <a href="tel:+4915732110038">+49 157 32110038 </a></span>
-                <span>📧 <a href="mailto:info.beqiriclean@gmail.com">info.beqiriclean@gmail.com</a></span>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/deinaccount" target="_blank">📘</a>
-                    <a href="https://wa.me/4915732110038" target="_blank">💬</a>
-                </div>
+
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <span>📞 <a href="tel:+4915732110038">+49 157 32110038</a></span>
+            <span>📧 <a href="mailto:info.beqiriclean@gmail.com">info.beqiriclean@gmail.com</a></span>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/deinaccount" target="_blank">📘</a>
+                <a href="https://wa.me/4915732110038" target="_blank">💬</a>
             </div>
         </div>
-    
+    </div>
+
     <header>
-            <a href="index.html">
-                <img src="images/Beqiri clean.png" alt="Beqiri Clean Logo" class="header-logo">
-            </a> 
-        
-            <div class="off-screen-menu">
-                <ul>
+        <a href="index.html">
+            <img src="images/Beqiri clean.png" alt="Beqiri Clean Logo" class="header-logo">
+        </a>
+
+        <div class="off-screen-menu">
+            <ul>
                 <li><a href="#about">Über uns</a></li>
                 <li><a href="#services">Dienstleistungen</a></li>
                 <li><a href="#why-us">Warum wir?</a></li>
                 <li><a href="#contact">Kontakt</a></li>
                 <li><a href="#contact" class="cta-nav">Jetzt Angebot anfordern</a></li>
-                </ul>
-            </div>
-            <!-- Hamburger Menü für mobile Ansicht -->
-            <div id="ham-menu" class="ham-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <div class="overlay"></div>
+            </ul>
+        </div>
 
-            <!-- Navigation -->
-            <nav class="nav-links">
-                <a href="#about">Über uns</a>
-                <a href="#services">Dienstleistungen</a>
-                <a href="#why-us">Warum wir?</a>
-                <a href="#contact">Kontakt</a>
-                <a href="#contact" class="cta-nav">Jetzt Angebot anfordern</a>
-            </nav>
+        <div id="ham-menu" class="ham-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="overlay"></div>
+
+        <nav class="nav-links">
+            <a href="#about">Über uns</a>
+            <a href="#services">Dienstleistungen</a>
+            <a href="#why-us">Warum wir?</a>
+            <a href="#contact">Kontakt</a>
+            <a href="#contact" class="cta-nav">Jetzt Angebot anfordern</a>
+        </nav>
     </header>
 
     <div class="hero hero-homepage">
@@ -665,50 +129,123 @@
         <div class="why-us">
             <div class="why-item">
                 <h3>Fachgerechte Reinigung</h3>
-                <li><strong>🔬Erfahrene Fachkräfte</strong> – Wir nutzen bewährte Techniken und hochwertige Reinigungsmittel.</li>
-                <li><strong>🛡️Materialschonend & effektiv</strong> – Jede Oberfläche bekommt die richtige Pflege.</li>
-                <li><strong>🌱Umweltbewusste Reinigung</strong> – Nachhaltige und schonende Methoden für beste Ergebnisse.</li>
+                <ul>
+                    <li><strong>🔬 Erfahrene Fachkräfte</strong> – Wir nutzen bewährte Techniken und hochwertige Reinigungsmittel.</li>
+                    <li><strong>🛡️ Materialschonend & effektiv</strong> – Jede Oberfläche bekommt die richtige Pflege.</li>
+                    <li><strong>🌱 Umweltbewusste Reinigung</strong> – Nachhaltige und schonende Methoden für beste Ergebnisse.</li>
+                </ul>
             </div>
             <div class="why-item">
                 <h3>Verlässlichkeit</h3>
-                <li><strong>✅Wir halten, was wir versprechen</strong> – Verbindlichkeit ist unser Standard.</li>
-                <li><strong>⏰Pünktlich & zuverlässig</strong> – Sie können sich auf uns verlassen.</li>
+                <ul>
+                    <li><strong>✅ Wir halten, was wir versprechen</strong> – Verbindlichkeit ist unser Standard.</li>
+                    <li><strong>⏰ Pünktlich & zuverlässig</strong> – Sie können sich auf uns verlassen.</li>
+                </ul>
             </div>
             <div class="why-item">
                 <h3>Flexibilität</h3>
-                <li><strong>🌙Ob Tag oder Nacht</strong> – Wir passen uns Ihren Wünschen an.</li>
-                <li><strong>📅Individuelle Terminwahl</strong> – Sie bestimmen, wann es für Sie passt.</li>
+                <ul>
+                    <li><strong>🌙 Ob Tag oder Nacht</strong> – Wir passen uns Ihren Wünschen an.</li>
+                    <li><strong>📅 Individuelle Terminwahl</strong> – Sie bestimmen, wann es für Sie passt.</li>
+                </ul>
             </div>
         </div>
     </section>
-
-<!--<section class="testimonial">
-    <h2>Unsere Kunden sagen:</h2>
-    <div class="testimonial-slider">
-        <div class="testimonial-slide">
-            <blockquote>
-                „**Beqiri Clean hat unser Büro in kürzester Zeit blitzsauber gemacht. Ihre Arbeit ist nicht nur schnell, sondern auch höchst professionell. Wir können sie uneingeschränkt empfehlen.**“
-            </blockquote>
-            <p>- Kunde aus München</p>
-        </div>
-        <div class="testimonial-slide">
-            <blockquote>
-                „**Wir sind begeistert von der Qualität und Zuverlässigkeit von Beqiri Clean. Jederzeit wieder!**“
-            </blockquote>
-            <p>- Kunde aus Berlin</p>
-        </div>
-    </div>
-</section>-->
 
     <section id="contact" class="section">
         <h2>Kontaktieren Sie uns</h2>
         <p>Bereit, Ihr Projekt zu starten? <strong>Kontaktieren Sie uns jetzt und wir machen es möglich!</strong></p>
         <div class="contact-form">
-            <form action="https://formspree.io/f/mqapzlrz" method="POST">
-                <input type="text" name="name" placeholder="Ihr Name" required>
-                <input type="email" name="email" placeholder="Ihre E-Mail" required>
-                <textarea name="message" placeholder="Ihre Nachricht" rows="5" required></textarea>
-                <button type="submit">Nachricht senden</button>
+            <form id="beqiri-quiz" action="https://formspree.io/f/mqapzlrz" method="POST">
+
+                <input type="hidden" name="Reinigungsart" id="q-art">
+                <input type="hidden" name="Flaeche" id="q-flaeche">
+                <input type="hidden" name="Intervall" id="q-intervall">
+                <input type="hidden" name="Ort" id="q-ort">
+
+                <div class="quiz-progress-bar">
+                    <div class="quiz-progress-fill" id="quiz-prog"></div>
+                </div>
+
+                <!-- Schritt 1 -->
+                <div class="quiz-step active" id="qs1">
+                    <p class="quiz-step-label">Schritt 1 von 5</p>
+                    <p class="quiz-step-title">Welche Art von Reinigung benötigen Sie?</p>
+                    <div class="quiz-options-grid">
+                        <button type="button" class="quiz-opt" onclick="quizSelect(this,'art','Büroreinigung')">🏢 Büroreinigung</button>
+                        <button type="button" class="quiz-opt" onclick="quizSelect(this,'art','Unterhaltsreinigung')">🔄 Unterhaltsreinigung</button>
+                        <button type="button" class="quiz-opt" onclick="quizSelect(this,'art','Fensterreinigung')">🪟 Fensterreinigung</button>
+                        <button type="button" class="quiz-opt" onclick="quizSelect(this,'art','Grundreinigung')">✨ Grundreinigung</button>
+                        <button type="button" class="quiz-opt" onclick="quizSelect(this,'art','Baureinigung')">🏗️ Baureinigung</button>
+                        <button type="button" class="quiz-opt" onclick="quizSelect(this,'art','Sonstiges')">💬 Sonstiges</button>
+                    </div>
+                    <div class="quiz-nav">
+                        <button type="button" class="quiz-btn-next" id="qn1" disabled onclick="quizNext(1)">Weiter →</button>
+                    </div>
+                </div>
+
+                <!-- Schritt 2 -->
+                <div class="quiz-step" id="qs2">
+                    <p class="quiz-step-label">Schritt 2 von 5</p>
+                    <p class="quiz-step-title">Wie groß ist die zu reinigende Fläche?</p>
+                    <div class="quiz-options-grid">
+                        <button type="button" class="quiz-opt" onclick="quizSelect(this,'flaeche','Unter 100 m²')">🏠 Unter 100 m²</button>
+                        <button type="button" class="quiz-opt" onclick="quizSelect(this,'flaeche','100 – 300 m²')">🏬 100 – 300 m²</button>
+                        <button type="button" class="quiz-opt" onclick="quizSelect(this,'flaeche','300 – 600 m²')">🏭 300 – 600 m²</button>
+                        <button type="button" class="quiz-opt" onclick="quizSelect(this,'flaeche','Über 600 m²')">🏗️ Über 600 m²</button>
+                    </div>
+                    <div class="quiz-nav">
+                        <button type="button" class="quiz-btn-back" onclick="quizBack(2)">← Zurück</button>
+                        <button type="button" class="quiz-btn-next" id="qn2" disabled onclick="quizNext(2)">Weiter →</button>
+                    </div>
+                </div>
+
+                <!-- Schritt 3 -->
+                <div class="quiz-step" id="qs3">
+                    <p class="quiz-step-label">Schritt 3 von 5</p>
+                    <p class="quiz-step-title">Wie oft soll gereinigt werden?</p>
+                    <div class="quiz-options-grid">
+                        <button type="button" class="quiz-opt" onclick="quizSelect(this,'intervall','Einmalig')">1️⃣ Einmalig</button>
+                        <button type="button" class="quiz-opt" onclick="quizSelect(this,'intervall','Wöchentlich')">📅 Wöchentlich</button>
+                        <button type="button" class="quiz-opt" onclick="quizSelect(this,'intervall','Monatlich')">🗓️ Monatlich</button>
+                        <button type="button" class="quiz-opt" onclick="quizSelect(this,'intervall','Nach Bedarf')">💡 Nach Bedarf</button>
+                    </div>
+                    <div class="quiz-nav">
+                        <button type="button" class="quiz-btn-back" onclick="quizBack(3)">← Zurück</button>
+                        <button type="button" class="quiz-btn-next" id="qn3" disabled onclick="quizNext(3)">Weiter →</button>
+                    </div>
+                </div>
+
+                <!-- Schritt 4 -->
+                <div class="quiz-step" id="qs4">
+                    <p class="quiz-step-label">Schritt 4 von 5</p>
+                    <p class="quiz-step-title">Wo befindet sich das Objekt?</p>
+                    <div class="quiz-options-grid">
+                        <button type="button" class="quiz-opt" onclick="quizSelect(this,'ort','Memmingen')">📍 Memmingen</button>
+                        <button type="button" class="quiz-opt" onclick="quizSelect(this,'ort','Kempten')">📍 Kempten</button>
+                        <button type="button" class="quiz-opt" onclick="quizSelect(this,'ort','Mindelheim')">📍 Mindelheim</button>
+                        <button type="button" class="quiz-opt" onclick="quizSelect(this,'ort','Anderer Ort')">🗺️ Anderer Ort</button>
+                    </div>
+                    <div class="quiz-nav">
+                        <button type="button" class="quiz-btn-back" onclick="quizBack(4)">← Zurück</button>
+                        <button type="button" class="quiz-btn-next" id="qn4" disabled onclick="quizNext(4)">Weiter →</button>
+                    </div>
+                </div>
+
+                <!-- Schritt 5 -->
+                <div class="quiz-step" id="qs5">
+                    <p class="quiz-step-label">Schritt 5 von 5</p>
+                    <p class="quiz-step-title">Wie können wir Sie erreichen?</p>
+                    <input type="text" name="name" placeholder="Vor- und Nachname" required oninput="quizCheckContact()">
+                    <input type="tel" name="telefon" placeholder="Telefonnummer" required oninput="quizCheckContact()">
+                    <input type="email" name="email" placeholder="E-Mail-Adresse" oninput="quizCheckContact()">
+                    <textarea name="anmerkungen" placeholder="Anmerkungen (optional)" rows="3"></textarea>
+                    <div class="quiz-nav">
+                        <button type="button" class="quiz-btn-back" onclick="quizBack(5)">← Zurück</button>
+                        <button type="submit" class="quiz-btn-next" id="qn5" disabled onclick="quizFillHidden()">Angebot anfordern →</button>
+                    </div>
+                </div>
+
             </form>
         </div>
     </section>
@@ -718,87 +255,79 @@
     </footer>
 
     <a href="#contact" class="fixed-cta">Jetzt Angebot anfordern</a>
-    <script>src="./app.js"</script>
+
     <script>
-        // Slide-in Animation für Dienstleistungen und Warum Uns?
+        // Scroll Animation
         const items = document.querySelectorAll('.service-item, .why-item');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
         }, { threshold: 0.1 });
-
         items.forEach(item => observer.observe(item));
 
-        // Testimonial Slider
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.testimonial-slide');
-        const totalSlides = slides.length;
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.style.transform = `translateX(${100 * (i - index)}%)`;
-            });
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
-        }
-
-        setInterval(nextSlide, 5000); // Wechsel alle 5 Sekunden
-    </script>
-    <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                let header = document.querySelector("header");
-    
-                window.addEventListener("scroll", function() {
-                    if (window.scrollY > 50) { 
-                    header.classList.add("scrolled");
-                    } else {
-                    header.classList.remove("scrolled");
-                    }
-                });
-            });
-    </script>
-    <script>
-        // Warten bis das DOM geladen ist
+        // Header scrolled
         document.addEventListener("DOMContentLoaded", function() {
+            const header = document.querySelector("header");
+            window.addEventListener("scroll", function() {
+                header.classList.toggle("scrolled", window.scrollY > 50);
+            });
+
+            // Hamburger Menü
             const hamMenu = document.querySelector(".ham-menu");
             const offScreenMenu = document.querySelector(".off-screen-menu");
             const overlay = document.querySelector(".overlay");
-    
-            // Menü öffnen und schließen
+
             hamMenu.addEventListener("click", () => {
                 hamMenu.classList.toggle("active");
                 offScreenMenu.classList.toggle("active");
                 overlay.classList.toggle("active");
             });
-    
-            // Wenn auf das Overlay geklickt wird, das Menü schließen
+
             overlay.addEventListener("click", () => {
                 hamMenu.classList.remove("active");
                 offScreenMenu.classList.remove("active");
                 overlay.classList.remove("active");
             });
-    
-            // Wenn ein Link im Menü geklickt wird, Menü schließen
-            document.querySelectorAll(".off-screen-menu a").forEach(link => {
-                link.addEventListener("click", () => {
-                    hamMenu.classList.remove("active");
-                    offScreenMenu.classList.remove("active");
-                    overlay.classList.remove("active");
-                });
-            });
         });
+
+        // Quiz
+        const quizData = {};
+        const quizProgs = { 1: '20%', 2: '40%', 3: '58%', 4: '76%', 5: '90%' };
+
+        function quizSelect(btn, key, val) {
+            btn.closest('.quiz-options-grid').querySelectorAll('.quiz-opt').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            quizData[key] = val;
+            const step = parseInt(btn.closest('.quiz-step').id.replace('qs',''));
+            document.getElementById('qn' + step).disabled = false;
+        }
+
+        function quizNext(from) {
+            document.getElementById('qs' + from).classList.remove('active');
+            document.getElementById('qs' + (from + 1)).classList.add('active');
+            document.getElementById('quiz-prog').style.width = quizProgs[from + 1] || '100%';
+        }
+
+        function quizBack(from) {
+            document.getElementById('qs' + from).classList.remove('active');
+            document.getElementById('qs' + (from - 1)).classList.add('active');
+            document.getElementById('quiz-prog').style.width = quizProgs[from - 1];
+        }
+
+        function quizCheckContact() {
+            const name = document.querySelector('[name="name"]').value.trim();
+            const tel = document.querySelector('[name="telefon"]').value.trim();
+            document.getElementById('qn5').disabled = !(name && tel);
+        }
+
+        function quizFillHidden() {
+            document.getElementById('q-art').value = quizData.art || '';
+            document.getElementById('q-flaeche').value = quizData.flaeche || '';
+            document.getElementById('q-intervall').value = quizData.intervall || '';
+            document.getElementById('q-ort').value = quizData.ort || '';
+        }
     </script>
-        
 
 </body>
 </html>
-
-
-
-
