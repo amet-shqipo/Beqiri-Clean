@@ -2,53 +2,80 @@
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://beqiri-clean.de/index.html</loc>
-    <priority>1.00</priority>
+    <loc>https://beqiri-clean.de/</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://beqiri-clean.de/gebaeudereinigung-memmingen.html</loc>
-    <priority>0.90</priority>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>9.0</priority>
   </url>
 
   <url>
     <loc>https://beqiri-clean.de/gebaeudereinigung-kempten.html</loc>
-    <priority>0.90</priority>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>9.0</priority>
   </url>
 
   <url>
     <loc>https://beqiri-clean.de/gebaeudereinigung-mindelheim.html</loc>
-    <priority>0.90</priority>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>9.0</priority>
   </url>
 
   <url>
-    <loc>https://beqiri-clean.de/fensterreinigung.html</loc>
-    <priority>0.90</priority>
+    <loc>https://beqiri-clean.de/index.html</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>9.0</priority>
   </url>
 
   <url>
     <loc>https://beqiri-clean.de/büroreinigung.html</loc>
-    <priority>0.90</priority>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://beqiri-clean.de/fensterreinigung.html</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://beqiri-clean.de/grundreinigung.html</loc>
-    <priority>0.90</priority>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://beqiri-clean.de/unterhaltsreinigung.html</loc>
-    <priority>0.90</priority>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>8.0</priority>
   </url>
 
   <url>
     <loc>https://beqiri-clean.de/impressum.html</loc>
-    <priority>0.30</priority>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://beqiri-clean.de/Datenschutz.html</loc>
-    <priority>0.30</priority>
+    <lastmod>2025-03-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
 </urlset>
