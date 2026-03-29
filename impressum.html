@@ -1,299 +1,145 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <link rel="icon" href="images/Beqiri clean.png" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Impressum von Beqiri Clean – Kontaktdaten und rechtliche Informationen.">
-    <title>Impressum - Beqiri Clean</title>
-    <style>
-        /* Allgemeine Stile */
-        body {
-            overflow-x: hidden; /* Verhindert horizontales Scrollen */
-            margin: 0; /* Entfernt unnötige Ränder */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #0055aa;
-        }
-        .top-bar {
-            background-color: #0055aa;
-            color: white;
-            text-align: center;
-            padding: 5px 0;
-            font-size: 14px;
-            position: fixed;
-            width: 100%; /* Damit sie sich über die gesamte Breite erstreckt */
-            top: 0; /* Direkt oben anheften */
-            left: 0;
-            z-index: 1000; /* Stellt sicher, dass sie über anderen Elementen liegt */
-        }
-        .top-bar-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: auto;
-            padding: 0 20px;
-        }
-        .top-bar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        .top-bar a:hover {
-            text-decoration: underline;
-        }
-        .social-icons a {
-            margin-left: 10px;
-            font-size: 18px;
-        }
-        .header-logo {
-            height: 170px; /* Größe anpassen */
-            width: auto; /* Automatische Breite */
-            max-height: 200px; /* Falls du eine Obergrenze willst */
-        }
-        header {
-            background-color: #e8edf3; /* Dunkleres Blau */
-            color: white;
-            display: flex;
-            justify-content: space-between; /* Abstand zwischen Logo und Navigation */
-            align-items: center; /* Vertikal ausrichten */
-            position: sticky; /* Fixiert den Header */
-            top: 34px;
-            width: 100%;
-            padding: 15px 20px;
-            z-index: 1000; /* Damit der Header über anderen Inhalten bleibt */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Schatten für den Header */
-            height: 60px; /* Feste Höhe für den Header */
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2em;
-            font-weight: bold;
-        }
-        nav a {
-            margin: 0 15px;
-            color: #002142;
-            text-decoration: none;
-            font-size: 1.1em;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #66ccff; /* Hellblau für Hover-Effekt */
-        }
-        .cta-nav {
-            color: white;
-            background-color: #0055aa;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        .cta-nav:hover {
-            background-color: #004488;
-        }
-        .cta-button {
-            background-color: #0055aa; /* Mittelblau */
-            padding: 15px 30px;
-            border: none;
-            color: white;
-            font-size: 1.2em;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: background-color 0.3s;
-            margin-top: 20px;
-            border-radius: 5px;
-            animation: none;
-        }
-        .cta-button:hover {
-            background-color: #004488; /* Dunkleres Blau für Hover */
-        }
-
-        .impressum-content {
-            margin-top: 75px; /* Genug Abstand zum Header */
-            padding: 40px 20px;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        
-        footer {
-            background-color: #002244; /* Dunkleres Blau */
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
-        footer a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1em;
-            transition: color 0.3s;
-        }
-        footer a:hover {
-            color: #66ccff; /* Hellblau für Hover-Effekt */
-        }
-       
-        .fixed-cta {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #0055aa;
-            padding: 15px 30px;
-            border-radius: 5px;
-            color: white;
-            text-decoration: none;
-            font-size: 1.2em;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            z-index: 1000;
-            transition: background-color 0.3s;
-        }
-        .fixed-cta:hover {
-            background-color: #004488;
-        }
-        
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            body {
-                overflow-x: hidden; /* Verhindert horizontales Scrollen */
-                width: 100%;
-                padding: 0;
-                margin: 0;
-            }
-            .top-bar {
-                display: none !important; /* Navigation ausblenden */
-                height: 0 !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                visibility: hidden !important;
-            }
-            .container {
-                width: 99%; /* Sorgt dafür, dass der Container die volle Breite des Bildschirms nutzt */
-                padding: 0 15px; /* Verhindert, dass der Inhalt an den Rändern klebt */
-            }
-            .hero p, .cta-button {
-                margin-bottom: 20px; /* Mehr Abstand */
-            }
-            header {
-                margin-top: 0 !important;
-                padding-top: 0 !important;
-                position: sticky;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 90px; /* Höhe des Headers anpassen, je nach Logo */
-                display: flex;
-                justify-content: center; /* Zentriert den Inhalt */
-                align-items: center; /* Vertikal ausrichten */
-                box-sizing: border-box; /* Verhindert Überlauf durch Padding */
-            }
-
-            .header-logo {
-                max-width: 100%; /* Stellt sicher, dass das Logo nicht breiter als der Bildschirm wird */
-                height: auto; /* Höhe bleibt im Verhältnis */
-                max-height: 200px; /* Hier kannst du die maximale Höhe des Logos anpassen */
-                object-fit: contain; /* Verhindert unscharfe Skalierung */
-                margin-top: 40px;
-            }
-            .header-nav {
-                display: none; /* Für kleine Bildschirme ausblenden */
-            }
-            .nav-links {
-                display: none !important;
-                visibility: hidden;
-                opacity: 0;
-                position: absolute;
-                top: 80px;
-                right: 20px;
-                background-color: #fff;
-                border-radius: 5px;
-                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-                padding: 5px;
-                overflow-x: hidden;
-                white-space: nowrap;
-                width: 200px;
-                height: auto;
-                transition: opacity 0.3s ease-in-out;
-            }
-
-            
-            .contact-form input, .contact-form textarea {
-                padding: 15px;
-                font-size: 1.2em;
-            }
-            .fixed-cta {
-                display: none;
-            }
-        }
-
-    </style>
+    <title>Impressum – Beqiri Clean</title>
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/legal.css">
 </head>
-    <link rel="icon" href="https://raw.githubusercontent.com/amet-shqipo/Beqiri-Clean/main/images/Beqiri clean.png" type="image/png">
 <body>
-    <div class="top-bar">
-        <div class="top-bar-content">
-            <span>📞 <a href="tel:+4915732110038">+49 157 32110038 </a></span>
-            <span>📧 <a href="mailto:info.beqiriclean@gmail.com">info.beqiriclean@gmail.com</a></span>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/deinaccount" target="_blank">📘</a>
-                <a href="https://wa.me/4915732110038" target="_blank">💬</a>
-            </div>
+
+<div class="topbar">
+    <div class="topbar-inner">
+        <span>📞 <a href="tel:+4915732110038">+49 157 32110038</a></span>
+        <span>📧 <a href="mailto:info.beqiriclean@gmail.com">info.beqiriclean@gmail.com</a></span>
+        <div class="topbar-social">
+            <a href="https://www.facebook.com/deinaccount" target="_blank">📘</a>
+            <a href="https://wa.me/4915732110038" target="_blank">💬</a>
         </div>
     </div>
-    
-    <header>
-        <a href="Gebäudereinigung-Memmingen.html">
-            <img src="https://raw.githubusercontent.com/amet-shqipo/Beqiri-Clean/main/images/Beqiri clean.png" alt="Beqiri Clean Logo" class="header-logo">
-        </a>    
-        <!-- Hamburger Menü für mobile Ansicht -->
-        <div class="hamburger-menu" id="hamburger-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-        <!-- Navigation -->
-        <nav class="nav-links">
-            <a href="Gebäudereinigung-Memmingen.html#about">Über uns</a>
-            <a href="Gebäudereinigung-Memmingen.html#services">Dienstleistungen</a>
-            <a href="Gebäudereinigung-Memmingen.html#why-us">Warum wir?</a>
-            <a href="Gebäudereinigung-Memmingen.html#contact">Kontakt</a>
-            <a href="Gebäudereinigung-Memmingen.html#contact" class="cta-nav">Jetzt Angebot anfordern</a>
-        </nav>
-    </header>
-        <!-- Impressum Content -->
-        <div class="impressum-content">
+</div>
+
+<header id="main-header">
+    <a href="index.html" class="header-logo-link">
+        <img src="images/Beqiri clean.png" alt="Beqiri Clean Logo" class="header-logo">
+    </a>
+    <nav class="header-nav">
+        <a href="index.html#leistungen">Leistungen</a>
+        <a href="index.html#loesung">Über uns</a>
+        <a href="index.html#vorteile">Vorteile</a>
+        <a href="index.html#contact" class="nav-cta-btn">Angebot anfordern</a>
+    </nav>
+    <div class="ham-menu" id="ham-menu"><span></span><span></span><span></span></div>
+</header>
+
+<div class="off-screen-menu" id="off-screen-menu">
+    <a href="index.html#leistungen" class="mobile-link">Leistungen</a>
+    <a href="index.html#loesung" class="mobile-link">Über uns</a>
+    <a href="index.html#vorteile" class="mobile-link">Vorteile</a>
+    <a href="index.html#contact" class="mobile-link mobile-cta">Angebot anfordern</a>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<!-- SEITENHEADER -->
+<div class="legal-hero">
+    <div class="legal-breadcrumb"><a href="index.html">Startseite</a> &rsaquo; Impressum</div>
     <h1>Impressum</h1>
+    <p>Rechtliche Informationen und Kontaktdaten</p>
+</div>
+
+<!-- INHALT -->
+<div class="legal-content">
+
     <h2>Angaben gemäß § 5 TMG</h2>
-    <p><strong>Beqiri Clean</strong><br>
-    Amet Beciri<br>
-    Am Hang 18<br>
-    87752 Holzgünz</p>
+    <address>
+        Beqiri Clean<br>
+        Amet Beciri<br>
+        Am Hang 18<br>
+        87752 Holzgünz
+    </address>
 
     <h2>Kontakt</h2>
-    <p>Telefon: <a href="tel:+49-157-23110038">+49 157 23110038</a><br>
-    E-Mail: <a href="mailto:info.beqiriclean@gmail.com">info.beqiriclean@gmail.com</a></p>
+    <address>
+        Telefon: <a href="tel:+4915732110038">+49 157 32110038</a><br>
+        E-Mail: <a href="mailto:info.beqiriclean@gmail.com">info.beqiriclean@gmail.com</a>
+    </address>
 
     <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
-    <p>Beqiri Clean<br>
-    Amet Beciri</p>
+    <p>Beqiri Clean<br>Amet Beciri</p>
 
     <h2>Haftungsausschluss</h2>
     <p>Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können jedoch keine Gewähr übernommen werden. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
 
     <h2>Haftung für Links</h2>
     <p>Unsere Website enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.</p>
+
 </div>
 
-
-
-
 <footer>
-    <p>© 2025 Beqiri Clean | <a href="Datenschutz.html">Datenschutz</a> | <a href="impressum.html">Impressum</a></p>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <img src="images/Beqiri clean.png" alt="Beqiri Clean" class="footer-logo">
+            <p>Professionelle Gebäudereinigung in<br>Memmingen, Kempten &amp; Mindelheim.</p>
+        </div>
+        <div class="footer-links">
+            <div class="footer-col">
+                <div class="footer-col-title">Leistungen</div>
+                <a href="büroreinigung.html">Büroreinigung</a>
+                <a href="fensterreinigung.html">Fensterreinigung</a>
+                <a href="grundreinigung.html">Grundreinigung</a>
+                <a href="unterhaltsreinigung.html">Unterhaltsreinigung</a>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Städte</div>
+                <a href="gebaeudereinigung-memmingen.html">Memmingen</a>
+                <a href="gebaeudereinigung-kempten.html">Kempten</a>
+                <a href="gebaeudereinigung-mindelheim.html">Mindelheim</a>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Kontakt</div>
+                <a href="tel:+4915732110038">+49 157 32110038</a>
+                <a href="mailto:info.beqiriclean@gmail.com">info.beqiriclean@gmail.com</a>
+                <a href="https://wa.me/4915732110038">WhatsApp</a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 Beqiri Clean – Gebäudereinigung Memmingen</p>
+        <div><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a></div>
+    </div>
 </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const header = document.getElementById("main-header");
+    window.addEventListener("scroll", function () {
+        header.classList.toggle("scrolled", window.scrollY > 60);
+    });
+    const hamMenu = document.getElementById("ham-menu");
+    const offMenu = document.getElementById("off-screen-menu");
+    const overlay = document.getElementById("overlay");
+    hamMenu.addEventListener("click", () => {
+        hamMenu.classList.toggle("active");
+        offMenu.classList.toggle("active");
+        overlay.classList.toggle("active");
+    });
+    overlay.addEventListener("click", () => {
+        hamMenu.classList.remove("active");
+        offMenu.classList.remove("active");
+        overlay.classList.remove("active");
+    });
+    offMenu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            hamMenu.classList.remove("active");
+            offMenu.classList.remove("active");
+            overlay.classList.remove("active");
+        });
+    });
+});
+</script>
 
 </body>
 </html>
