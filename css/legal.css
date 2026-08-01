@@ -1,0 +1,130 @@
+/* =============================================
+   BEQIRI CLEAN – LEGAL.CSS
+   Für Datenschutz & Impressum
+   Aufgebaut auf Basis von style1.css
+   ============================================= */
+
+/* ---- SEITENHEADER (Titel-Bereich) ---- */
+.legal-hero {
+    background: linear-gradient(160deg, #eef4ff 0%, #f9fbff 60%, #ffffff 100%);
+    padding: 100px 24px 60px;
+    margin-top: 32px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.legal-hero h1 {
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+}
+
+.legal-hero p {
+    font-size: 16px;
+    color: var(--text-muted);
+}
+
+/* ---- BREADCRUMB ---- */
+.legal-breadcrumb {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.legal-breadcrumb a {
+    color: var(--blue);
+}
+
+.legal-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* ---- INHALT ---- */
+.legal-content {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 64px 24px 100px;
+}
+
+.legal-content h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    margin-top: 48px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+.legal-content h2:first-of-type {
+    margin-top: 0;
+}
+
+.legal-content p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+.legal-content ul {
+    margin: 0 0 16px 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.legal-content ul li {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.legal-content address {
+    font-style: normal;
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.9;
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 24px 28px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+.legal-content address a {
+    color: var(--blue);
+}
+
+.legal-content address a:hover {
+    text-decoration: underline;
+}
+
+.legal-content a {
+    color: var(--blue);
+}
+
+.legal-content a:hover {
+    text-decoration: underline;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+    .legal-hero {
+        padding: 80px 20px 48px;
+        margin-top: 0;
+    }
+
+    .legal-content {
+        padding: 48px 20px 80px;
+    }
+
+    .legal-content h2 {
+        font-size: 18px;
+        margin-top: 36px;
+    }
+}
