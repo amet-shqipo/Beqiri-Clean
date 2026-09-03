@@ -1,0 +1,10 @@
+# macOS Finder-Metadaten
+.DS_Store
+._*
+
+# SEO-Werkzeug (eigenes Repository, gehoert nicht zur Website)
+claude-seo/
+
+# Editor
+.vscode/
+.idea/

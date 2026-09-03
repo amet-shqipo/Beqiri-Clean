@@ -541,6 +541,13 @@
    }
    .quiz-opt:hover { border-color: var(--blue); background: var(--blue-light); }
    .quiz-opt.selected { border: 2px solid var(--blue); background: var(--blue-light); color: var(--blue); font-weight: 600; }
+   .quiz-privacy-note {
+       font-size: 12px;
+       line-height: 1.5;
+       color: var(--text-light);
+       margin: 4px 0 16px;
+   }
+   .quiz-privacy-note a { color: var(--blue); text-decoration: underline; }
    .quiz-nav { display: flex; gap: 10px; }
    .quiz-btn-back {
        background: transparent;
