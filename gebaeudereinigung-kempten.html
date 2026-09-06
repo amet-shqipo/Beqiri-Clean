@@ -10,67 +10,102 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/leistungen.css">
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
-      "@graph": [
+      "@type": "CleaningService",
+      "@id": "https://beqiri-clean.de/gebaeudereinigung-kempten.html#business",
+      "name": "Beqiri Clean – Gebäudereinigung Kempten",
+      "description": "Gewerbliche Gebäudereinigung in Kempten (Allgäu) und im Umkreis von rund 10 Kilometern: Unterhaltsreinigung, Büroreinigung, Fensterreinigung und Grundreinigung.",
+      "url": "https://beqiri-clean.de/gebaeudereinigung-kempten.html",
+      "telephone": "+4915732110038",
+      "email": "info.beqiriclean@gmail.com",
+      "image": "https://beqiri-clean.de/images/Beqiri%20clean.png",
+      "priceRange": "€€",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Am Hang 18",
+        "postalCode": "87752",
+        "addressLocality": "Holzgünz",
+        "addressRegion": "Bayern",
+        "addressCountry": "DE"
+      },
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 47.7267,
+          "longitude": 10.3168
+        },
+        "geoRadius": "10000"
+      },
+      "serviceType": [
+        "Gebäudereinigung",
+        "Büroreinigung",
+        "Fensterreinigung",
+        "Grundreinigung",
+        "Unterhaltsreinigung",
+        "Treppenhausreinigung"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://beqiri-clean.de/gebaeudereinigung-kempten.html#faq",
+      "mainEntity": [
         {
-          "@type": "CleaningService",
-          "@id": "https://beqiri-clean.de/gebaeudereinigung-kempten.html#business",
-          "name": "Beqiri Clean – Gebäudereinigung Kempten",
-          "description": "Gewerbliche Gebäudereinigung in Kempten (Allgäu) und im Umkreis von rund 10 Kilometern: Unterhaltsreinigung, Büroreinigung, Fensterreinigung und Grundreinigung.",
-          "url": "https://beqiri-clean.de/gebaeudereinigung-kempten.html",
-          "telephone": "+4915732110038",
-          "email": "info.beqiriclean@gmail.com",
-          "image": "https://beqiri-clean.de/images/Beqiri%20clean.png",
-          "priceRange": "€€",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Am Hang 18",
-            "postalCode": "87752",
-            "addressLocality": "Holzgünz",
-            "addressRegion": "Bayern",
-            "addressCountry": "DE"
-          },
-          "areaServed": {
-            "@type": "GeoCircle",
-            "geoMidpoint": {
-              "@type": "GeoCoordinates",
-              "latitude": 47.7267,
-              "longitude": 10.3168
-            },
-            "geoRadius": "10000"
-          },
-          "serviceType": ["Gebäudereinigung","Büroreinigung","Fensterreinigung","Grundreinigung","Unterhaltsreinigung","Treppenhausreinigung"]
+          "@type": "Question",
+          "name": "In welchen Stadtteilen sind Sie tätig?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Im gesamten Stadtgebiet – von der Altstadt und dem Rathausplatz über St. Mang, Kottern und Heiligkreuz bis Thingers, Lenzfried, Hirschdorf und Ursulasried. Dazu der Umkreis von rund zehn Kilometern ins Oberallgäu."
+          }
         },
         {
-          "@type": "FAQPage",
-          "@id": "https://beqiri-clean.de/gebaeudereinigung-kempten.html#faq",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "In welchen Stadtteilen von Kempten sind Sie tätig?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Im gesamten Stadtgebiet – von der Altstadt und dem Rathausplatz über St. Mang, Kottern und Heiligkreuz bis Thingers, Lenzfried, Hirschdorf und Ursulasried. Dazu kommt ein Umkreis von rund 10 Kilometern ins Oberallgäu." }
-            },
-            {
-              "@type": "Question",
-              "name": "Reinigen Sie auch außerhalb der Öffnungszeiten?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Ja. In Büros und Kanzleien reinigen wir üblicherweise vor Arbeitsbeginn oder nach Feierabend, im Einzelhandel vor Öffnung. Den Zeitrahmen legen wir beim Ortstermin gemeinsam fest." }
-            },
-            {
-              "@type": "Question",
-              "name": "Wie schnell bekomme ich ein Angebot?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Wir melden uns innerhalb von 24 Stunden nach Ihrer Anfrage. Bei größeren Objekten in Kempten schauen wir uns die Flächen vorher kostenlos vor Ort an, damit das Angebot belastbar ist." }
-            },
-            {
-              "@type": "Question",
-              "name": "Übernehmen Sie auch einmalige Reinigungen?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Ja, etwa Grundreinigungen nach Umbauten, vor einem Mieterwechsel oder als Auffrischung. Ein laufender Vertrag ist dafür nicht nötig." }
-            }
-          ]
+          "@type": "Question",
+          "name": "Reinigen Sie außerhalb der Öffnungszeiten?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. In Büros und Kanzleien reinigen wir üblicherweise vor Arbeitsbeginn oder nach Feierabend, im Einzelhandel vor Ladenöffnung. Der Zeitrahmen wird beim Ortstermin festgelegt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie schnell bekomme ich ein Angebot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Wir melden uns innerhalb von 24 Stunden. Bei größeren Objekten sehen wir uns die Flächen vorher kostenlos vor Ort an – ein Angebot ohne Besichtigung wäre bei Gewerbeflächen wenig belastbar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Auch einmalige Reinigungen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja – etwa Grundreinigung nach einem Umbau, vor einem Mieterwechsel oder als jährliche Auffrischung. Ein laufender Vertrag ist dafür keine Voraussetzung."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wer stellt Material und Verbrauchsmittel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Reinigungsmittel und Geräte bringen wir mit. Verbrauchsmaterial wie Seife, Papierhandtücher oder Toilettenpapier können wir auf Wunsch mitliefern und nachfüllen – das wird separat vereinbart."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was, wenn etwas nicht passt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Melden Sie es direkt bei Ihrem Ansprechpartner. Wir sehen uns die Stelle an und arbeiten nach – und prüfen, ob der Turnus für diesen Bereich zu knapp bemessen war."
+          }
         }
       ]
     }
-    </script>
+  ]
+}
+</script>
     <link rel="canonical" href="https://beqiri-clean.de/gebaeudereinigung-kempten.html">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="de_DE">
