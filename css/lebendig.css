@@ -1,0 +1,616 @@
+/* =============================================
+   BEQIRI CLEAN – LEBENDIG.CSS
+   Frische Design-Ebene über style.css:
+   Himmelblau + Navy, markante Typo, Hover-Lift,
+   gestaffeltes Einblenden. Inhalte bleiben unverändert.
+   ============================================= */
+
+:root {
+    --blue: #0284C7;          /* Himmelblau, kräftig genug für weiße Schrift */
+    --blue-dark: #0369A1;
+    --blue-light: #E0F2FE;
+    --blue-mid: #0EA5E9;
+    --sky: #0EA5E9;
+    --sky-soft: #7DD3FC;
+    --navy: #0F172A;
+    --navy-deep: #050D1A;
+    --navy-grad: linear-gradient(135deg, #0F172A 0%, #1E3A5F 100%);
+    --text: #0F172A;
+    --text-muted: #64748B;
+    --text-light: #94A3B8;
+    --bg-light: #F8FAFC;
+    --border: #E2E8F0;
+    --shadow-sm: 0 2px 12px rgba(15,23,42,0.06);
+    --shadow-md: 0 10px 32px rgba(15,23,42,0.10);
+    --shadow-lg: 0 18px 48px rgba(15,23,42,0.16);
+    --glow: 0 6px 24px rgba(14,165,233,0.40);
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-head: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+body { font-family: var(--font); color: var(--text); }
+
+h1, h2, h3, h4,
+.section-title, .cp-title, .stat-num, .city-name,
+.solution-num, .step-num, .btn-primary, .btn-secondary,
+.nav-cta-btn, .fixed-cta, .quiz-step-title {
+    font-family: var(--font-head);
+}
+
+/* ---- Topbar & Header ---- */
+.topbar { background: var(--navy-deep); color: rgba(255,255,255,0.78); }
+.topbar a:hover { color: var(--sky-soft); text-decoration: none; }
+.header-nav a { font-family: var(--font-head); font-weight: 600; }
+.nav-cta-btn { box-shadow: var(--glow); }
+
+/* ---- Abschnitts-Labels als Pille ---- */
+.section-eyebrow {
+    display: table;
+    margin: 0 auto 14px;
+    font-family: var(--font-head);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: var(--blue);
+    background: var(--blue-light);
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+}
+.section-title { font-weight: 800; letter-spacing: -0.8px; }
+
+/* ---- Buttons mit Glanz ---- */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--glow);
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(14,165,233,0.55); }
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -120%;
+    width: 60%; height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,0.35), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.7s var(--ease-out);
+    pointer-events: none;
+}
+.btn-primary:hover::after { left: 140%; }
+.btn-secondary { font-weight: 700; transition: background var(--transition), transform var(--transition); }
+.btn-secondary:hover { transform: translateY(-2px); }
+
+/* ---- Hero-Akzent als Verlauf ---- */
+.vhero .hero-accent {
+    background: linear-gradient(135deg, #38BDF8, #0EA5E9 50%, #7DD3FC);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.vhero .hero-h1 { font-weight: 800; letter-spacing: -1px; }
+.cp-title { font-weight: 800; letter-spacing: -1px; }
+.cp-count { color: var(--sky-soft); }
+.vhero-progress span { background: linear-gradient(90deg, var(--sky), var(--sky-soft)); }
+
+/* ---- Hero-Punkte (klickbar) ---- */
+.vhero-dots {
+    position: absolute;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    z-index: 4;
+}
+.vhero-dot {
+    width: 10px; height: 10px;
+    padding: 0;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: transform 0.35s var(--ease-out), background 0.35s, box-shadow 0.35s, border-color 0.35s;
+}
+.vhero-dot:hover { transform: scale(1.3); background: rgba(255,255,255,0.5); }
+.vhero-dot:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.vhero-dot.is-active {
+    background: var(--sky);
+    border-color: var(--sky-soft);
+    box-shadow: 0 0 14px rgba(14,165,233,0.85);
+    transform: scale(1.25);
+}
+
+/* Fester CTA erst nach dem Hero (doppelt mit dem Hero-Button) */
+.fixed-cta { box-shadow: var(--glow); transition: opacity 0.5s ease, transform 0.5s ease, background var(--transition); }
+body.is-over-hero .fixed-cta { opacity: 0; transform: translateY(16px); pointer-events: none; }
+
+/* ---- Zahlenleiste ---- */
+.stats-bar { border-top: none; box-shadow: var(--shadow-sm); position: relative; z-index: 1; }
+.stat-num {
+    font-size: 36px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--blue), var(--sky));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.stat-label { color: var(--text-muted); font-weight: 500; }
+
+/* ---- Karten: Anheben + Akzentrand ---- */
+.service-card,
+.pain-card,
+.benefit-card,
+.l-testimonial-card {
+    transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out),
+                border-color 0.35s, opacity 0.6s var(--ease-out);
+}
+.service-card.visible,
+.pain-card.visible,
+.benefit-card.visible {
+    transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out),
+                box-shadow 0.35s var(--ease-out), border-color 0.35s;
+}
+.service-card:hover,
+.pain-card.visible:hover,
+.benefit-card.visible:hover,
+.l-testimonial-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--sky);
+}
+.service-card-img img { transition: transform 0.6s var(--ease-out); }
+.service-card:hover .service-card-img img { transform: scale(1.07); }
+.service-card-badge { background: rgba(2,132,199,0.92); backdrop-filter: blur(6px); }
+.service-card-body h3 { font-weight: 700; }
+.card-link { display: inline-flex; gap: 4px; transition: gap 0.25s var(--ease-out); }
+.card-link:hover { gap: 10px; text-decoration: none; }
+
+/* Leistungs-Leiste: nur seitlich schieben. Senkrecht nie scrollbar,
+   damit das Mausrad die Seite bewegt. Innen Luft für Anheben + Schatten,
+   außen per negativem Rand ausgeglichen, damit das Layout gleich bleibt. */
+.services-grid {
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    padding: 14px 6px 30px;
+    margin: -14px -6px -14px;
+    scroll-padding-inline: 6px;
+}
+
+.slider-btn { color: var(--blue); transition: background var(--transition), transform var(--transition), box-shadow var(--transition); }
+.slider-btn:hover { background: var(--blue-light); transform: translateY(-50%) scale(1.08); box-shadow: var(--shadow-md); }
+
+.extra-service-pill { transition: border-color 0.25s, color 0.25s, transform 0.25s var(--ease-out); }
+.extra-service-pill:hover { border-color: var(--sky); color: var(--blue); transform: translateY(-2px); }
+
+/* ---- CTA-Banner: Verlauf ---- */
+.cta-banner {
+    background: linear-gradient(120deg, var(--blue-dark) 0%, var(--blue) 45%, var(--sky) 100%);
+    position: relative;
+    overflow: hidden;
+}
+.cta-banner::before {
+    content: '';
+    position: absolute;
+    width: 380px; height: 380px;
+    right: -120px; top: -160px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.10);
+    pointer-events: none;
+}
+.cta-banner-inner { position: relative; }
+.cta-banner h3 { font-family: var(--font-head); font-weight: 800; font-size: 22px; }
+
+/* ---- Problem-Karten ---- */
+.pain-icon {
+    width: 48px; height: 48px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    border-radius: 12px;
+    background: #FEF2F2;
+}
+.pain-card h4, .benefit-card h4 { font-family: var(--font-head); }
+
+/* ---- Lösung: dunkles Panel ---- */
+#loesung .solution-steps {
+    background: var(--navy-grad);
+    border-radius: var(--radius-lg);
+    padding: 12px 44px;
+    box-shadow: var(--shadow-lg);
+}
+#loesung .solution-step { border-bottom-color: rgba(255,255,255,0.08); }
+#loesung .solution-num {
+    width: 56px; height: 56px;
+    min-width: 56px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    background: var(--sky);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 800;
+    box-shadow: 0 0 0 6px rgba(14,165,233,0.15);
+}
+#loesung .solution-body h3 { color: #fff; }
+#loesung .solution-body p { color: rgba(255,255,255,0.68); }
+
+/* ---- Vorteile ---- */
+.benefit-card { background: #fff; box-shadow: var(--shadow-sm); }
+.benefit-icon {
+    width: 52px; height: 52px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    border-radius: 14px;
+    background: var(--blue-light);
+    transition: transform 0.4s var(--ease-out);
+}
+.benefit-card.visible:hover .benefit-icon { transform: rotate(-8deg) scale(1.1); }
+
+/* ---- Städte: Navy mit Lichtkreisen ---- */
+.section-blue { background: var(--navy-grad); position: relative; overflow: hidden; }
+.section-blue .section-eyebrow { background: rgba(14,165,233,0.18); color: var(--sky-soft) !important; }
+.city-card {
+    position: relative;
+    overflow: hidden;
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.12);
+}
+.city-card::before {
+    content: '';
+    position: absolute;
+    width: 140px; height: 140px;
+    top: -40px; right: -40px;
+    border-radius: 50%;
+    background: rgba(14,165,233,0.16);
+    transition: transform 0.6s var(--ease-out);
+}
+.city-card.visible:hover { background: rgba(255,255,255,0.09); transform: translateY(-6px); box-shadow: 0 18px 48px rgba(0,0,0,0.35); }
+.city-card:hover::before { transform: scale(1.6); }
+.city-name { position: relative; font-weight: 800; }
+.city-sub { position: relative; color: var(--sky-soft); font-weight: 600; }
+
+/* ---- Nächste Schritte als Karten ---- */
+.step-item {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 32px 24px;
+    transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.35s;
+}
+.step-item.visible { transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out), box-shadow 0.35s, border-color 0.35s; }
+.step-item.visible:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--sky); }
+.step-num {
+    background: linear-gradient(135deg, var(--blue), var(--sky));
+    font-weight: 800;
+    box-shadow: var(--glow);
+}
+.step-arrow { color: var(--sky-soft); align-self: center; padding-top: 0; }
+
+/* ---- Bewertungen & FAQ ---- */
+.l-testimonial-stars { color: #F59E0B; letter-spacing: 2px; }
+.l-testimonial-avatar { background: linear-gradient(135deg, var(--blue), var(--sky)); color: #fff; }
+.l-faq-item { transition: border-color 0.25s, box-shadow 0.25s; }
+.l-faq-item:hover { border-color: var(--sky); }
+.l-faq-item.open { border-color: var(--sky); box-shadow: var(--shadow-md); }
+.l-faq-q { font-family: var(--font-head); font-weight: 700; }
+
+/* ---- Kontakt / Quiz ---- */
+.contact-form { border: 1px solid var(--border); box-shadow: var(--shadow-md); background: #fff; }
+.quiz-progress-fill { background: linear-gradient(90deg, var(--blue), var(--sky)); transition: width 0.5s var(--ease-out); }
+.quiz-opt { transition: border-color 0.2s, background 0.2s, transform 0.2s var(--ease-out); }
+.quiz-opt:hover { transform: translateY(-2px); border-color: var(--sky); }
+.quiz-opt.selected { border-color: var(--blue); background: var(--blue-light); color: var(--blue-dark); }
+.quiz-step.active { animation: quizIn 0.45s var(--ease-out); }
+@keyframes quizIn {
+    from { opacity: 0; transform: translateX(16px); }
+    to   { opacity: 1; transform: none; }
+}
+
+/* ---- Footer: Navy ---- */
+footer { background: var(--navy); }
+.footer-col a:hover, .footer-bottom a:hover { color: var(--sky-soft); }
+
+/* =============================================
+   UNTERSEITEN (Leistungen, Städte, Rechtliches)
+   ============================================= */
+
+/* ---- Hero-Akzent auf hellem Grund: dunklerer Verlauf, gut lesbar ---- */
+.hero-accent {
+    background: linear-gradient(135deg, var(--blue-dark), var(--sky));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ---- Städte-Hero: helles Himmelblau mit Lichtflecken ---- */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 12% 20%, rgba(14,165,233,0.16), transparent 42%),
+        radial-gradient(circle at 88% 75%, rgba(2,132,199,0.12), transparent 45%),
+        linear-gradient(160deg, #F0F9FF 0%, #F8FAFC 55%, #FFFFFF 100%);
+}
+.hero-section .hero-eyebrow {
+    display: inline-block;
+    font-family: var(--font-head);
+    font-weight: 700;
+    background: var(--blue-light);
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+}
+.hero-section .hero-h1 { font-weight: 800; }
+/* Städte-Hero mit Bild: Text links, Bild rechts (mobil untereinander) */
+.hero-section.hero-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 56px;
+    align-items: center;
+    text-align: left;
+    padding-left: max(24px, calc((100% - 1152px) / 2));
+    padding-right: max(24px, calc((100% - 1152px) / 2));
+}
+.hero-split .hero-inner { max-width: none; margin: 0; }
+.hero-split .hero-sub { margin: 0 0 32px; max-width: 560px; }
+.hero-split .hero-btns,
+.hero-split .hero-trust { justify-content: flex-start; }
+.hero-media {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    aspect-ratio: 4 / 3.6;
+}
+.hero-media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, rgba(14,165,233,0.12), transparent 55%);
+    pointer-events: none;
+}
+.hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s var(--ease-out);
+}
+.hero-media:hover img { transform: scale(1.04); }
+/* Handy & Tablet: wie die Startseite – Bild füllt den Hero, dunkler
+   Verlauf darüber, Text weiß obendrauf */
+@media (max-width: 900px) {
+    .hero-section.hero-split {
+        position: relative;
+        isolation: isolate;
+        min-height: 88vh;
+        min-height: 88svh;
+        padding: 110px 20px 72px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: var(--navy);
+    }
+    .hero-split .hero-media {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        border-radius: 0;
+        aspect-ratio: auto;
+        box-shadow: none;
+    }
+    .hero-split .hero-media::after {
+        background: linear-gradient(180deg, rgba(0,26,51,0.62) 0%, rgba(0,26,51,0.42) 40%, rgba(0,26,51,0.85) 100%);
+    }
+    .hero-split .hero-media:hover img { transform: none; }
+    .hero-split .hero-inner { max-width: 640px; }
+    .hero-split .hero-eyebrow {
+        color: #fff;
+        background: rgba(255,255,255,0.12);
+        border: 1px solid rgba(255,255,255,0.25);
+        font-size: 11px;
+        letter-spacing: 0.6px;
+    }
+    .hero-split .hero-h1 { color: #fff; text-shadow: 0 2px 24px rgba(0,0,0,0.35); }
+    /* Schatten würde durch die Verlaufsschrift scheinen und sie trüben */
+    .hero-split .hero-accent { background-image: linear-gradient(135deg, #38BDF8, #0EA5E9 50%, #7DD3FC); text-shadow: none; }
+    .hero-split .hero-sub { color: rgba(255,255,255,0.88); margin: 0 auto 32px; }
+    .hero-split .hero-btns,
+    .hero-split .hero-trust { justify-content: center; }
+    .hero-split .btn-secondary { color: #fff; border-color: rgba(255,255,255,0.7); }
+    .hero-split .btn-secondary:hover { background: rgba(255,255,255,0.12); }
+    .hero-split .trust-pill {
+        background: rgba(255,255,255,0.1);
+        border-color: rgba(255,255,255,0.22);
+        color: #fff;
+        box-shadow: none;
+    }
+
+    /* Kopfzeile liegt über dem Bild: erst durchsichtig, nach dem Hero langsam weiß.
+       Ohne :has-Unterstützung bleibt sie einfach weiß wie bisher. */
+    body:has(.hero-split) header {
+        position: fixed;
+        left: 0;
+        width: 100%;
+        transition: background 0.9s ease, box-shadow 0.9s ease,
+                    backdrop-filter 0.9s ease, -webkit-backdrop-filter 0.9s ease;
+    }
+    body:has(.hero-split) header.is-over-hero {
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        box-shadow: none;
+    }
+    body:has(.hero-split) header .header-logo,
+    body:has(.hero-split) header .ham-menu span {
+        transition: filter 0.9s ease, background 0.9s ease;
+    }
+    body:has(.hero-split) header.is-over-hero .header-logo { filter: brightness(0) invert(1); }
+    body:has(.hero-split) header.is-over-hero .ham-menu span { background: #fff; }
+    body:has(.hero-split) header.is-over-hero .ham-menu.active span { background: var(--blue); }
+    body:has(.hero-split) header.is-over-hero .header-nav a:not(.nav-cta-btn) { color: #fff; }
+}
+/* Tablet: Topbar ist sichtbar → Kopfzeile darunter. Handy: Topbar ausgeblendet. */
+@media (min-width: 769px) and (max-width: 900px) {
+    body:has(.hero-split) header { top: 32px; }
+}
+@media (max-width: 768px) {
+    body:has(.hero-split) header { top: 0; }
+}
+
+.trust-pill { transition: transform 0.25s var(--ease-out), border-color 0.25s; }
+.trust-pill:hover { transform: translateY(-2px); border-color: var(--sky); }
+
+/* ---- Leistungs-Hero mit Bild ---- */
+.l-hero-content h1 { font-family: var(--font-head); font-weight: 800; letter-spacing: -0.8px; }
+.l-breadcrumb a, .legal-breadcrumb a { font-weight: 600; }
+.l-hero-img {
+    position: relative;
+    box-shadow: var(--shadow-lg);
+}
+.l-hero-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, rgba(14,165,233,0.12), transparent 55%);
+    pointer-events: none;
+}
+.l-hero-img img { transition: transform 0.8s var(--ease-out); }
+.l-hero-img:hover img { transform: scale(1.04); }
+
+/* ---- Probleme mit Nummern ---- */
+.l-sit-prob, .l-sit-col {
+    transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.35s;
+}
+.l-sit-prob:hover, .l-sit-col:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--sky);
+}
+.l-sit-num {
+    font-family: var(--font-head);
+    background: linear-gradient(135deg, var(--blue), var(--sky));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.l-sit-col h4 { font-family: var(--font-head); }
+
+/* ---- „Das Ziel“: Navy statt Flachblau ---- */
+.l-ziel-section {
+    background: var(--navy-grad);
+    position: relative;
+    overflow: hidden;
+}
+.l-ziel-section::before {
+    content: '';
+    position: absolute;
+    width: 420px; height: 420px;
+    left: -160px; bottom: -220px;
+    border-radius: 50%;
+    background: rgba(14,165,233,0.14);
+    pointer-events: none;
+}
+.l-ziel-inner { position: relative; }
+.l-ziel-label {
+    display: inline-block;
+    font-family: var(--font-head);
+    color: var(--sky-soft);
+    background: rgba(14,165,233,0.18);
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+}
+
+/* ---- Lösungs-Karten ---- */
+.l-loesung-card {
+    transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.35s;
+}
+.l-loesung-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--sky);
+}
+.l-loesung-num {
+    font-family: var(--font-head);
+    background: linear-gradient(135deg, var(--blue), var(--sky-soft));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.l-loesung-card h3 { font-family: var(--font-head); }
+
+/* ---- „Das erwartet Sie“ & „Weitere Leistungen“ ---- */
+.l-erwarten-item, .l-other-card {
+    transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.35s;
+}
+.l-erwarten-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--sky);
+}
+.l-other-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--sky);
+}
+.l-other-icon { transition: transform 0.4s var(--ease-out); }
+.l-other-card:hover .l-other-icon { transform: scale(1.15) rotate(-6deg); }
+.l-other-title { font-family: var(--font-head); }
+
+/* ---- Abschluss-Banner ---- */
+.l-final-cta {
+    background: linear-gradient(120deg, var(--blue-dark) 0%, var(--blue) 45%, var(--sky) 100%);
+    position: relative;
+    overflow: hidden;
+}
+.l-final-cta::before {
+    content: '';
+    position: absolute;
+    width: 420px; height: 420px;
+    right: -140px; top: -180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.10);
+    pointer-events: none;
+}
+.l-final-cta-inner { position: relative; }
+/* Blauer Button auf blauem Verlauf wäre kaum sichtbar → weiß */
+.l-final-cta .btn-primary:not(.btn-white-outline) {
+    background: #fff;
+    color: var(--blue-dark);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+}
+.l-final-cta .btn-primary:not(.btn-white-outline):hover { background: #F0F9FF; }
+.l-final-cta h2 { font-family: var(--font-head); font-weight: 800; }
+
+/* ---- Impressum & Datenschutz ---- */
+.legal-hero {
+    background:
+        radial-gradient(circle at 15% 30%, rgba(14,165,233,0.14), transparent 45%),
+        linear-gradient(160deg, #F0F9FF 0%, #F8FAFC 60%, #FFFFFF 100%);
+}
+.legal-hero h1 { font-family: var(--font-head); font-weight: 800; }
+.legal-content h2 { font-family: var(--font-head); }
+.legal-content address { background: #fff; box-shadow: var(--shadow-sm); }
+
+/* ---- Gestaffeltes Einblenden (Verzögerung setzt lebendig.js) ---- */
+.service-card, .pain-card, .benefit-card, .solution-step, .step-item, .city-card {
+    transition-delay: var(--stagger, 0s);
+}
+.service-card.visible:hover, .pain-card.visible:hover, .benefit-card.visible:hover,
+.step-item.visible:hover, .city-card.visible:hover { transition-delay: 0s; }
+
+/* ---- Mobile ---- */
+@media (max-width: 768px) {
+    .vhero-dots { right: 14px; gap: 12px; }
+    #loesung .solution-steps { padding: 4px 22px; }
+    #loesung .solution-step { gap: 18px; }
+    .step-item { width: 100%; }
+}
+
+/* ---- Wer Bewegung reduziert hat ---- */
+@media (prefers-reduced-motion: reduce) {
+    .btn-primary::after, .quiz-step.active { transition: none; animation: none; }
+    .service-card, .pain-card, .benefit-card, .solution-step, .step-item, .city-card { transition-delay: 0s; }
+    .vhero-dots { display: none; }
+}

@@ -4,12 +4,17 @@
     <link rel="icon" href="images/Beqiri clean.png" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0055aa">
+    <meta name="theme-color" content="#0F172A">
     <meta name="description" content="Beqiri Clean – Ihre Gebäudereinigung für Memmingen & das Allgäu: Büro-, Fenster-, Grund- & Unterhaltsreinigung. Jetzt kostenloses Angebot anfordern!">
     <meta name="google-site-verification" content="fMaK1TEa4R_Yg1DXH_eh04XbE6gUzEa0OXAgw9fAceY" />
     <title>Gebäudereinigung Memmingen & Allgäu | Beqiri Clean</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/leistungen.css">
+    <link rel="stylesheet" href="css/video-hero.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/lebendig.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -115,7 +120,7 @@
 }
 </script>
 </head>
-<body>
+<body class="has-video-hero">
 
 <div class="topbar">
     <div class="topbar-inner">
@@ -150,8 +155,17 @@
 </div>
 <div class="overlay" id="overlay"></div>
 
-<section class="hero-section">
-    <div class="hero-inner">
+<section class="vhero" aria-label="Beqiri Clean – Gebäudereinigung Memmingen">
+    <div class="vhero-sticky">
+        <video class="vhero-video" muted playsinline preload="auto" aria-hidden="true">
+            <source src="videos/hero.mp4" type="video/mp4">
+            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3LFYIpx6KnQTX4WhF73X2FxySCE/hf_20261026_235544_ba0f0fe1-7e25-4fcb-9f32-06263e21b62c.mp4" type="video/mp4">
+        </video>
+        <div class="vhero-shade"></div>
+
+        <!-- Checkpoint 0: bisheriger Hero-Text (H1 bleibt für SEO identisch) -->
+        <div class="vhero-cp is-active" data-time="0">
+            <div class="hero-inner">
         <div class="hero-eyebrow">Gebäudereinigung Memmingen &amp; Allgäu</div>
         <h1 class="hero-h1">Professionelle <span class="hero-accent">Gebäudereinigung in Memmingen</span><br>&amp; im Allgäu</h1>
         <p class="hero-sub">Beqiri Clean ist Ihr lokaler Partner für professionelle Gebäudereinigung in Memmingen, Kempten und Mindelheim. Vom Büro über die Praxis bis zur Gewerbehalle – wir beraten Sie individuell und erstellen Ihnen ein kostenloses, unverbindliches Angebot.</p>
@@ -164,6 +178,40 @@
             <div class="trust-pill"><span class="trust-dot"></span>Kostenlose Beratung</div>
             <div class="trust-pill"><span class="trust-dot"></span>Antwort in 24h</div>
         </div>
+    </div>
+        </div>
+
+        <!-- Checkpoint 1: Tisch wird abgewischt -->
+        <div class="vhero-cp cp-story" data-time="2.6">
+            <div class="cp-count">01 / 03</div>
+            <h2 class="cp-title">Jeder Winkel.<br>Makellos sauber.</h2>
+            <p class="cp-text">Schreibtische, Ablagen, Kanten – wir reinigen gründlich, nicht nur das Offensichtliche.</p>
+        </div>
+
+        <!-- Checkpoint 2: Fenster wird abgezogen -->
+        <div class="vhero-cp cp-story" data-time="5.0">
+            <div class="cp-count">02 / 03</div>
+            <h2 class="cp-title">Klarer Blick.<br>Streifenfreie Fenster.</h2>
+            <p class="cp-text">Glasflächen innen und außen – sauber abgezogen, ohne Schlieren.</p>
+        </div>
+
+        <!-- Checkpoint 3: Fertig -->
+        <div class="vhero-cp cp-story" data-time="end">
+            <div class="cp-count">03 / 03</div>
+            <h2 class="cp-title">Fertig.<br>Auf den Punkt.</h2>
+            <p class="cp-text">Sie kommen ins Büro – und alles ist bereit. In Memmingen, Kempten und Mindelheim.</p>
+            <a href="#contact" class="btn-primary">Jetzt Angebot anfordern</a>
+        </div>
+
+        <div class="vhero-dots" aria-label="Abschnitte des Intros">
+            <button type="button" class="vhero-dot is-active" aria-label="Start"></button>
+            <button type="button" class="vhero-dot" aria-label="Jeder Winkel"></button>
+            <button type="button" class="vhero-dot" aria-label="Klarer Blick"></button>
+            <button type="button" class="vhero-dot" aria-label="Fertig"></button>
+        </div>
+        <div class="vhero-hint">Scrollen</div>
+        <a href="#leistungen" class="vhero-skip">Intro überspringen ↓</a>
+        <div class="vhero-progress"><span></span></div>
     </div>
 </section>
 
@@ -184,7 +232,7 @@
             <div class="services-grid" id="servicesGrid">
                 <div class="service-card">
                     <div class="service-card-img">
-                        <img src="images/büroreinigung.jpg" alt="Büroreinigung Memmingen">
+                        <img src="images/leistung-buero.jpg" alt="Büroreinigung Memmingen">
                         <div class="service-card-badge">Gewerbe</div>
                     </div>
                     <div class="service-card-body">
@@ -195,7 +243,7 @@
                 </div>
                 <div class="service-card">
                     <div class="service-card-img">
-                        <img src="images/fensterreinigung.jpg" alt="Fensterreinigung Memmingen">
+                        <img src="images/leistung-fenster.jpg" alt="Fensterreinigung Memmingen">
                         <div class="service-card-badge">Privat &amp; Gewerbe</div>
                     </div>
                     <div class="service-card-body">
@@ -206,7 +254,7 @@
                 </div>
                 <div class="service-card">
                     <div class="service-card-img">
-                        <img src="images/grundreinigung.jpg" alt="Grundreinigung Memmingen">
+                        <img src="images/leistung-grund.jpg" alt="Grundreinigung Memmingen">
                         <div class="service-card-badge">Intensiv</div>
                     </div>
                     <div class="service-card-body">
@@ -217,7 +265,7 @@
                 </div>
                 <div class="service-card">
                     <div class="service-card-img">
-                        <img src="images/büroreinigung.jpg" alt="Unterhaltsreinigung Memmingen">
+                        <img src="images/leistung-unterhalt.jpg" alt="Unterhaltsreinigung Memmingen">
                         <div class="service-card-badge">Privat &amp; Gewerbe</div>
                     </div>
                     <div class="service-card-body">
@@ -682,5 +730,7 @@ function slideServices(dir) {
     grid.scrollBy({ left: dir * 340, behavior: 'smooth' });
 }
 </script>
+<script src="js/video-hero.js"></script>
+<script src="js/lebendig.js"></script>
 </body>
 </html>
