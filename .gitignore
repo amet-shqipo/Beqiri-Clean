@@ -8,3 +8,6 @@ claude-seo/
 # Editor
 .vscode/
 .idea/
+
+# Interne Planung (Preise/Margen, nicht veroeffentlichen)
+_planung/

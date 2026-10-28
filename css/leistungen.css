@@ -548,3 +548,257 @@
         font-size: 16px;
     }
 }
+/* ---- RATGEBER-ARTIKEL ---- */
+.a-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: -8px 0 24px;
+}
+
+.a-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+}
+
+.a-toc {
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 22px 26px;
+    margin-bottom: 40px;
+}
+
+.a-toc-title {
+    font-family: var(--font-head);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.a-toc ol {
+    margin: 0;
+    padding-left: 20px;
+    line-height: 1.9;
+}
+
+.a-toc a { color: var(--blue); }
+
+.a-body h2 {
+    font-size: clamp(22px, 2.6vw, 28px);
+    margin: 48px 0 16px;
+    scroll-margin-top: 120px;
+}
+
+.a-body h3 {
+    font-size: 19px;
+    margin: 28px 0 10px;
+}
+
+.a-body p,
+.a-body li {
+    font-size: 17px;
+    line-height: 1.75;
+    color: #334155;
+}
+
+.a-body p { margin: 0 0 18px; }
+
+.a-body ul,
+.a-body ol {
+    margin: 0 0 22px;
+    padding-left: 22px;
+}
+
+.a-body li { margin-bottom: 8px; }
+
+.a-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 28px;
+    font-size: 15px;
+}
+
+.a-body th,
+.a-body td {
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+.a-body th {
+    background: var(--bg-light);
+    font-family: var(--font-head);
+}
+
+.a-table-scroll { overflow-x: auto; }
+
+.a-box {
+    background: var(--blue-light);
+    border-left: 4px solid var(--blue);
+    border-radius: var(--radius-sm);
+    padding: 18px 22px;
+    margin: 28px 0;
+}
+
+.a-box p:last-child { margin-bottom: 0; }
+
+.a-box--hinweis {
+    background: #FFF7ED;
+    border-left-color: #F59E0B;
+}
+
+.a-check li {
+    list-style: none;
+    position: relative;
+    padding-left: 6px;
+}
+
+.a-check li::before {
+    content: "✓";
+    position: absolute;
+    left: -20px;
+    color: var(--blue);
+    font-weight: 700;
+}
+
+.a-cta {
+    background: var(--navy-grad);
+    color: white;
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    margin: 48px 0;
+    text-align: center;
+}
+
+.a-cta h3 {
+    color: white;
+    font-size: 22px;
+    margin: 0 0 10px;
+}
+
+.a-cta p {
+    color: rgba(255,255,255,0.85);
+    margin: 0 auto 22px;
+    max-width: 520px;
+}
+
+.a-cta .btn-primary { margin: 4px 6px; }
+
+/* ---- INHABER-BOX ---- */
+.owner-box {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 22px 24px;
+    box-shadow: var(--shadow-sm);
+}
+
+.owner-avatar {
+    flex: 0 0 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--navy-grad);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 24px;
+    overflow: hidden;
+}
+
+.owner-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.owner-name {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.owner-role {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.owner-box p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #334155;
+}
+
+/* ---- WERTE & MARKEN (Über uns) ---- */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: 40px auto 0;
+}
+
+.value-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 26px;
+}
+
+.value-icon {
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+
+.value-card h3 {
+    font-size: 18px;
+    margin: 0 0 8px;
+}
+
+.value-card p {
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+@media (max-width: 900px) {
+    .values-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+    .values-grid { grid-template-columns: 1fr; }
+    .owner-box { flex-direction: column; text-align: center; }
+    .a-cta { padding: 26px 20px; }
+}
+
+/* Herstellerlogos: eine Reihe, Originalfarben */
+.logo-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 28px 56px;
+    max-width: 900px;
+    margin: 40px auto 0;
+}
+.logo-row img { height: 48px; width: auto; display: block; }
+.logo-row a { display: block; }
+/* breiter Schriftzug: niedriger setzen, damit alle Logos gleich schwer wirken */
+.logo-row img[alt="DR.SCHNELL"] { height: 32px; }
+@media (max-width: 600px) {
+    .logo-row { gap: 24px 36px; }
+    .logo-row img { height: 38px; }
+    .logo-row img[alt="DR.SCHNELL"] { height: 26px; }
+}

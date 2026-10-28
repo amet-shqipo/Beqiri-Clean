@@ -9,6 +9,25 @@
     // Karten einer Reihe kommen nacheinander statt alle gleichzeitig
     const groups = [".services-grid", ".pain-grid", ".benefits-grid", ".solution-steps", ".steps-row", ".cities-grid"];
     const cards = ".service-card, .pain-card, .benefit-card, .solution-step, .step-item, .city-card";
+
+    // Karten einblenden, sobald sie sichtbar werden (gilt auch für Unterseiten ohne eigenes Skript)
+    const reveal = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            e.target.classList.add("visible");
+            reveal.unobserve(e.target);
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll(cards).forEach((card) => reveal.observe(card));
+
+    // Vorher-Nachher-Schieber: Regler-Wert als --pos an den Rahmen geben
+    document.querySelectorAll(".ba-range").forEach((range) => {
+        const frame = range.closest(".ba-frame");
+        const update = () => frame.style.setProperty("--pos", range.value + "%");
+        range.addEventListener("input", update);
+        update();
+    });
+
     if (!reduced) {
         groups.forEach((sel) => {
             document.querySelectorAll(sel).forEach((group) => {
