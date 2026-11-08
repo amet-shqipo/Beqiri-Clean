@@ -153,6 +153,12 @@
     top: 1px;
 }
 
+.l-umfang .l-sit-col ul li::before {
+    content: '✓';
+    color: #16a34a;
+    font-weight: 700;
+}
+
 /* ---- ZIEL SECTION ---- */
 .l-ziel-section {
     background: var(--blue);
